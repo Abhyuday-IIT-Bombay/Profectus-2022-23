@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+</head>
+<body>
+    <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Upload </button>
+
+      </form>
+        <p>If You dont have resume don't worry</p>
+
+        <div class="container">
+            <h3>Resume</h3>
+            <hr>
+            <h4>Personal Deatils</h4>
+            <form class="row g-3" method="post", action="{% url 'resume'%}">
+                {% csrf_token %}
+                <div class="row g-3">
+                    <div class="col">
+                      <input type="text" name="fname" class="form-control" placeholder="First name" aria-label="First name">
+                    </div>
+                    <div class="col">
+                      <input type="text" name="lname" class="form-control" placeholder="Last name" aria-label="Last name">
+                    </div>
+                  </div>
+                <div class="col-md-6">
+                  <label for="inputEmail4" class="form-label">Email</label>
+                  <input type="email" name="email" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-12">
+                  <label for="inputAddress" class="form-label">Current Location</label>
+                  <input type="text" name="loc1" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <div class="col-12">
+                  <label for="inputAddress2" class="form-label">Secondary Location</label>
+                  <input type="text" name="loc2" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                </div>
+                <br>
+                <hr>
+                <h4>Education</h4>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Add Secondary</label>
+                    <textarea class="form-control" name="seducation" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Add Senior Secondary</label>
+                    <textarea class="form-control" name="sseducation" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Add Graduation</label>
+                    <textarea class="form-control" name="graduation" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <br>
+                <hr>
+                <h4>Experience</h4>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Position of Responsibility</label>
+                    <textarea class="form-control" name="por" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Trainig/Courses</label>
+                    <textarea class="form-control" name="course" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Academic/Personal Projects</label>
+                    <textarea class="form-control" name="project" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <br>
+                <hr>
+                <h4>Skills</h4>
+                <div class="mb-3">
+                    <!-- <label for="exampleFormControlTextarea1" class="form-label">Trainig/Courses</label> -->
+                    <textarea class="form-control" name="skill" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <br>
+                <hr>
+                <h4>Work Samples</h4>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Blog Link</label>
+                    <input type="text" class="form-control" name="blog" id="inputAddress" placeholder="http://myblog.com">
+                  </div>
+                  <div class="col-12">
+                    <label for="inputAddress" class="form-label">Github profile</label>
+                    <input type="text" class="form-control" name="github" id="inputAddress" placeholder="http://github.com">
+                  </div>
+                  <div class="col-12">
+                    <label for="inputAddress" class="form-label">Other work sample link</label>
+                    <input type="text" class="form-control" name="other" id="inputAddress" placeholder="http://myblog.com">
+                  </div>
+
+                <br><br>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+                <a href="/pdf">Download</a>
+              </form>
+              
+        </div>
+
+        
+        
+
+
+
+</body>
+</html>
