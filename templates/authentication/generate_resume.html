@@ -1,12 +1,408 @@
+
 <!DOCTYPE html>
 <html lang="en">
+    {% load static  %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume</title>
+    <style>
+        .logo > img{
+            width: 15vh;
+        }
+        .header{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .name-intro{
+            display: flex;
+            flex-direction: column;
+            padding-top: 11px;
+            /* justify-content: center; */
+            
+        }
+
+        .roll{
+            float:right;
+            display: flex;
+            flex-direction: column;
+            padding-top: 11px;
+        }
+
+        .name{
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .branch{
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .college,.roll,.gender,.main-info{
+            font-size: 12px;
+        }
+        .degree,.heading,.title{
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .info{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .main-table{
+            padding: 2vh 16vh;
+        }
+        .section-heading{
+            /* background-color: rgb(192, 191, 191); */
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-left: 11vh;
+            margin-right: 11vh;
+            margin-bottom: 10px;
+            border-bottom: 1px solid black;
+            /* padding: 5px; */
+
+        }
+        .subsection-heading{
+            display: flex;
+            justify-content: space-between;
+            padding-right: 11vh;
+            padding-left: 12vh;
+        }
+        .discription{
+            padding-left: 12vh;
+            padding-right: 11vh;
+        }
+        .discription,.time{
+            font-size: 12px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="header">
+            <!-- logo -->
+            <div class="logo">
+                <img src="{% static 'images/logo.png' %}" alt="">
+            </div>
+
+
+            <table style="width:100%">
+            <tr>
+                <td>
+                    <div class="name">
+                    {{fname}} {{lname}}
+                    </div>
+                </td>
+                <td>
+                     <div class="rollno" style="text-align: right;">
+                    20xxxxxxxx
+                    </div>
+                </td>
+                
+                
+            </tr>
+            <tr>
+               <td>
+                    <div class="branch">
+                    {{email}}
+                    </div>
+                </td>
+                <td>
+                    <div class="degree" style="text-align: right;">
+                    B.Tech
+                    </div>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    <div class="college">
+                    Indian Institute of Technology Bombay
+                    </div>
+                </td>
+                <td>
+                    <div class="gender" style="text-align: right;">
+                    Male
+                    </div>
+                </td>
+            </tr>
+
+            </table>
+
+        </div>
+ 
+        <!-- Scholastic Fields -->
+        <div class="main-table">
+            <hr>
+            <table style="width:100%">
+            <tr>
+                <td style="font-size: 13px; font-weight:bold;">Examination</td>
+                <td style="font-size: 13px; font-weight:bold;">University</td>
+                <td style="font-size: 13px; font-weight:bold;">Institute</td>
+                <td style="font-size: 13px; font-weight:bold;">Year</td>
+                <td style="font-size: 13px; font-weight:bold;">CPI/%</td>
+            </tr>
+            <tr>
+                <td>Graduation</td>
+                <td>IIT Bombay</td>
+                <td>IIT Bombay</td>
+                <td>2022</td>
+                <td>10</td>
+            </tr>
+             <tr>
+                <td>Graduation</td>
+                <td>IIT Bombay</td>
+                <td>IIT Bombay</td>
+                <td>2022</td>
+                <td>10</td>
+            </tr>
+             <tr>
+                <td>Graduation</td>
+                <td>IIT Bombay</td>
+                <td>IIT Bombay</td>
+                <td>2022</td>
+                <td>10</td>
+            </tr>
+
+            </table>
+            <hr>
+        </div>
+
+        <!-- Sections -->
+        <div class="section">
+            <div class="section-heading">
+                Position of Responsibility
+            </div>
+            
+            <div class="subsections">
+                <div class="subsection">
+                    <ul>
+                        <div class="subsection-heading">
+                            <table style="width:100%">
+                                <tr>
+                                    <td>
+                                        <div class="title">
+                                            <li>Title</li> 
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="time" style="text-align: right;">
+                                            (July'22-Present)
+                                        </div>
+                                    </td>
+                                    
+                    
+                            </table>
+                        </div>    
+                            
+                        <div class="discription">
+                            {{por}}
+                        </div>
+
+                        <div class="subsection-heading">
+                                
+                            <table style="width:100%">
+                                <tr>
+                                    <td>
+                                        <div class="title">
+                                            <li>Title</li> 
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="time" style="text-align: right;">
+                                            (July'22-Present)
+                                        </div>
+                                    </td>                    
+                            </table>
+                        </div>    
+                            
+                        <div class="discription">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, perferendis. Maxime, omnis facere explicabo qui aspernatur nobis ut dolorum illum, cum laudantium quas illo. Sequi ad dignissimos atque dolore eaque.
+                        </div>
+                        
+                        <div class="subsection-heading">                                
+                            <table style="width:100%">
+                                <tr>
+                                    <td>
+                                        <div class="title">
+                                            <li>Title</li> 
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="time" style="text-align: right;">
+                                            (July'22-Present)
+                                        </div>
+                                    </td>                    
+                                </table>                            
+                        </div>    
+                            
+                        <div class="discription">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, perferendis. Maxime, omnis facere explicabo qui aspernatur nobis ut dolorum illum, cum laudantium quas illo. Sequi ad dignissimos atque dolore eaque.
+                        </div>                       
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="section">
+            <div class="section-heading">
+                Key Projects
+            </div>
+            <div class="subsections">
+                <div class="subsection">
+                    <ul>
+                        <div class="subsection-heading">
+                            <table style="width:100%">
+                                <tr>
+                                    <td>
+                                        <div class="title">
+                                            <li>Title</li> 
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="time" style="text-align: right;">
+                                            (July'22-Present)
+                                        </div>
+                                    </td>                                                        
+                            </table>       
+                        </div>    
+                            
+                        <div class="discription">
+                            {{project}}
+                        </div>
+
+                        <div class="subsection-heading">    
+                            <table style="width:100%">
+                                <tr>
+                                    <td>
+                                        <div class="title">
+                                            <li>Title</li> 
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="time" style="text-align: right;">
+                                            (July'22-Present)
+                                        </div>
+                                    </td>                    
+                                </table>                            
+                        </div>    
+                            
+                        <div class="discription">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, perferendis. Maxime, omnis facere explicabo qui aspernatur nobis ut dolorum illum, cum laudantium quas illo. Sequi ad dignissimos atque dolore eaque.
+                        </div>
+                        
+                        <div class="subsection-heading">                               
+                            <table style="width:100%">
+                                <tr>
+                                    <td>
+                                        <div class="title">
+                                            <li>Title</li> 
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="time" style="text-align: right;">
+                                            (July'22-Present)
+                                        </div>
+                                    </td>                    
+                            </table>                            
+                        </div>        
+                        <div class="discription">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, perferendis. Maxime, omnis facere explicabo qui aspernatur nobis ut dolorum illum, cum laudantium quas illo. Sequi ad dignissimos atque dolore eaque.
+                        </div>                      
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <div class="section">
+            <div class="section-heading">
+                Technical Skills
+            </div>
+            <div class="subsections">
+                <div class="discription">
+                    <ul>
+                        <li>
+                            {{skill}}
+                        </li>
+                        <li>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, perferendis. Maxime, omnis facere explicabo qui aspernatur nobis ut dolorum illum, cum laudantium quas illo. Sequi ad dignissimos atque dolore eaque.
+                        </li>
+                    </ul>                   
+                </div>
+            </div>
+        </div>
+        <hr>
+
+
+        <div class="section">
+            <div class="section-heading">
+                Extra-Curriculars
+            </div>
+            <div class="subsections">
+                <div class="subsection">
+                    <ul>
+                        <div class="subsection-heading">                                
+                            <table style="width:100%">
+                                <tr>
+                                    <td>
+                                        <div class="title">
+                                            <li>{{blog}}</li> 
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="time" style="text-align: right;">
+                                            (July'22-Present)
+                                        </div>
+                                    </td>                    
+                            </table>                       
+                        </div>    
+                            
+
+                        <div class="subsection-heading">  
+                            <table style="width:100%">
+                                <tr>
+                                    <td>
+                                        <div class="title">
+                                            <li>{{github}}</li> 
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="time" style="text-align: right;">
+                                            (July'22-Present)
+                                        </div>
+                                    </td>
+                            </table>
+                        </div>    
+                            
+                       
+                        <div class="subsection-heading">    
+                            <table style="width:100%">
+                                <tr>
+                                    <td>
+                                        <div class="title">
+                                            <li>{{other}}</li> 
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="time" style="text-align: right;">
+                                            (July'22-Present)
+                                        </div>
+                                    </td>
+                            </table>  
+                        </div>     
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
 </body>
 </html>

@@ -17,6 +17,7 @@ import io
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
+
 # Create your views here.
 
 
@@ -140,46 +141,45 @@ def resume(request):
             other = request.POST['other']
             resfile = Make_Resume(fname=fname, lname=lname,email=email,loc1=loc1,loc2=loc2,seducation=seducation,sseducation=sseducation,graduation=graduation,por=por,course=course,project=project,skill=skill,blog=blog,github=github,other=other)
             resfile.save()
-              # Create Bytestream buffer
-            buf = io.BytesIO()
-            # Create a canvas
-            c = canvas.Canvas(buf, pagesize=letter, bottomup=0)
-            # Create a text object
-            textob = c.beginText()
-            textob.setTextOrigin(inch, inch)
-            textob.setFont("Helvetica", 14)
-
-
-            lines =[]
-
-            lines.append(fname)
-            lines.append(lname)
-            lines.append(email)
-            lines.append(loc1)
-            lines.append(loc2)
-            lines.append(seducation)
-            lines.append(sseducation)
-            lines.append(graduation)
-            lines.append(por)
-            lines.append(course)
-            lines.append(project)
-            lines.append(skill)
-            lines.append(blog)
-            lines.append(github)
-            lines.append(other)
-            lines.append(" ")
-
-            for line in lines:
-                    textob.textLine(line)
-
-            # Finish Up
-            c.drawText(textob)
-            c.showPage()
-            c.save()
-            buf.seek(0)
-
+            
+            data ={
+                'fname':fname,
+                'lname':lname,
+                'email':email,
+                # 'loc1':loc1
+                # 'loc2':loc2
+                'seducation': seducation,
+                'sseducation':sseducation,
+                'graduation':graduation,
+                'por':por,
+                # 'course':course
+                'project':project,
+                'skill':skill,
+                'blog':blog,
+                'github':github,
+                'other':other
+            }
+            global val
+            def val():
+                return data
             # Return something
-            return  FileResponse(buf, as_attachment=True, filename='resume.pdf') 
+            return  render(request, 'authentication/upload_resume.html' ,{
+                 'fname':fname,
+                'lname':lname,
+                'email':email,
+                # 'loc1':loc1
+                # 'loc2':loc2
+                'seducation': seducation,
+                'sseducation':sseducation,
+                'graduation':graduation,
+                'por':por,
+                # 'course':course
+                'project':project,
+                'skill':skill,
+                'blog':blog,
+                'github':github,
+                'other':other
+            })
         
 
 # def resume_list(request):
@@ -239,3 +239,17 @@ def upload_resume(request):
         'form':form
     })    
 
+# importing the necessary libraries
+from django.views.generic import View
+from .forms import html_to_pdf 
+
+#Creating a class based view
+class GeneratePdf(View):
+     def get(self, request, *args, **kwargs):
+        
+        data = val()
+        # getting the template
+        pdf = html_to_pdf('authentication/generate_resume.html',data)
+         
+         # rendering the template
+        return HttpResponse(pdf, content_type='application/pdf')

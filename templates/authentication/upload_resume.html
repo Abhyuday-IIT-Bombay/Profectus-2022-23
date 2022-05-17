@@ -98,9 +98,9 @@
 
                 <br><br>
                 <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Upload</button>
+                  <button type="submit" onclick="show()" class="btn btn-primary">Upload</button>
                 </div>
-                <a href="/pdf">Download</a>
+               <a href="/pdf" id="download">Download</a>
               </form>
               
         </div>
@@ -111,4 +111,14 @@
 
 
 </body>
+<script>
+  function show() {
+    var x = document.getElementById("download");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  }
+</script>
 </html>
