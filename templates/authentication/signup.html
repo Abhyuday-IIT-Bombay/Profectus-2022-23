@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,41 +6,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
 </head>
-<body>
+<body> -->
+    {% extends 'authentication/base.html' %}
+    {% block content %}
 
     {% for message in messages%}
-    <div class="alert alert-{{messages.tags}} alert-dismissible false show" role="alert">
+    {% comment %} <div class="alert alert alert-dismissible false show" role="alert">
         <strong>Message:</strong>{{message}}
         <button type="submit" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span> 
         </button>
+    </div> {% endcomment %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin:0">
+        <strong>Opps!</strong> {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
     {% endfor %}
-    <h1>Sign Up</h1>
+    <div class="reg-outer-container">
+    <div class="reg-container">
+        <div class="content">
+            <div class="guideline">
+                <div class="guidediv" style="margin-top: 50px;">
+                    <p ><i class="fa fa-check-circle" aria-hidden="true"></i> This fellowship program is for IIT Bombay students only.</p>
+                </div>
+                   <br>
+                   <div class="guidediv">
+                       <h4>REGISTRATION</h4>
+                    <p><i class="fa fa-check-circle" aria-hidden="true"></i> Candidates should upload their one page resume.</p>
+                     <p ><i class="fa fa-check-circle" aria-hidden="true"></i> Candidate must upload their one page resume in the pdf format. </p>
+                      <p><i class="fa fa-check-circle" aria-hidden="true"></i> File name must be <b>Roll_Number.pdf </b> where 'Roll_Number' is your IIT Bombay enrolled roll number.</p>
+                </div>
+                   <br>
+                <div  class="guidediv">
+                    <h4>PENALTY</h4>
+                    <p><i class="fa fa-check-circle" aria-hidden="true"></i> A report of each fellow would be submitted to the Dean of student affairs at the end of their fellowship tenure. 
+                    </p><br>
+                     <p >If the candidate is found to be- </p>
+                      <p>involved in any misconduct during the fellowship duration/
+                    have quit the fellowship any time before his/her fellowship duration ends/rejected the fellowship once accepted</p><br>
+                    <p><b>It would lead to bad remarks being noted in his/her final report sent to the dean of student affairs and candidate would be further penalized. </b></p>
+                </div>
+            </div>
+            
 
-    <form action="/signup" method="post">
-        {% csrf_token %}
-        <label for="">Username</label>
-        <input type="text" id="username" name ="username" placeholder="Create a username" required>
-        <br>
-        <label for="">Name</label>
-        <input type="text" id="name" name ="name" placeholder="Enter Your Name" required>
-        <br>
-        <label for="">Email</label>
-        <input type="email" id="email" name ="email" placeholder="Enter Your Email" required>
-        <br>
-        <label for="">Contact Number</label>
-        <input type="number" id="contact" name ="contact" placeholder="Enter Your Contact Number" required>
-        <br>
-        <label for="">Password</label>
-        <input type="password" id="pass1" name ="pass1" placeholder="Create a Password" required>
-        <br>
-        <label for="">Confirm your password</label>
-        <input type="password" id="pass2" name ="pass2" placeholder="Confirm Your Password" required>
-        <br>
-        <button type="submit">Sign Up</button>
-    </form>
+
+            <div class="reg-inner-container">
+                <div class="form">
+                    <form action="/signup" method="post">
+                        <div class="inner-form">
+                           
+                            {% csrf_token %}
+                            <!-- <label for="">Username</label> -->
+                            <input type="text" id="username" name ="username" placeholder="Create a username" required>
+                            <br>
+                            <!-- <label for="">Name</label> -->
+                            <input type="text" id="name" name ="name" placeholder="Enter Your Name" required>
+                            <br>
+                            <!-- <label for="">Email</label> -->
+                            <input type="email" id="email" name ="email" placeholder="Enter Your Email" required>
+                            <br>
+                            <!-- <label for="">Contact Number</label> -->
+                            <input type="phone" id="contact" name ="contact" placeholder="Enter Your Contact Number" required>
+                            <br>
+                            <input type="text" name="roll" placeholder="Enter Your Roll Number" required>
+                            <br>
+                            <div class="input-group">
+                                <!-- <label>Department</label> -->
+                                <select name="department" >
+                                    <option value="Aerospace Engineering">Aerospace Engineering</option>
+                                    <option value="Biosciences and Bioengineering">Biosciences and Bioengineering</option>
+                                    <option value="Centre of Studies in Resources Engineering (CSRE)">Centre of Studies in Resources Engineering (CSRE)</option>
+                                    <option value="Chemical Engineering">Chemical Engineering</option>
+                                    <option value="Chemistry">Chemistry</option>                          
+                                    <option value="Civil Engineering">Civil Engineering</option>
+                                    <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                                    <option value="Earth Sciences">Earth Sciences</option>
+                                    <option value="Electrical Engineering">Electrical Engineering</option>
+                                    <option value="Energy Science and Engineering">Energy Science and Engineering</option>
+                                    <option value="Environmental Science and Engineering">Environmental Science and Engineering</option>
+                                    <option value="Humanities & Social Science">Humanities & Social Science</option>
+                                    <option value="Industrial Design Centre">Industrial Design Centre</option>
+                                    <option value="Industrial Engineering and Operations Research(IEOR)">Industrial Engineering and Operations Research(IEOR)</option>
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                                    <option value="Metallurgical Engineering & Materials Science">Metallurgical Engineering & Materials Science</option>
+                                    <option value="System and Control Engineering">System and Control Engineering</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Shailesh J. Mehta School of Managemen">Shailesh J. Mehta School of Managemen</option>
+                                </select>
+                             </div>
+                             <div class="input-group">
+                                <!-- <label>Graduation</label> -->
+                             <select name="year">
+                                 <option value="Undergraduate(UG)">Undergraduate(UG) </option>
+                                 <option value="Postgraduate(PG)">Postgraduate(PG)</option>
+                                 <option value="Doctorate(PhD)">Doctorate(PhD)</option>
+                             </select>
+                             </div>
+                            <!-- <label for="">Password</label> -->
+                            <input type="password" id="pass1" name ="pass1" placeholder="Create a Password" required>
+                            <br>
+                            <!-- <label for="">Confirm your password</label> -->
+                            <input type="password" id="pass2" name ="pass2" placeholder="Confirm Your Password" required>
+                            <br>
+                            <div class="signup">
+                                <button type="submit" class="custom-btn btn-11">Register</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                    <br>
+                    <p style="color:rgb(214, 173, 253)">Already have an account? <a href="/login" style="text-decoration: none; color:aliceblue">Login</a></p>
+                </div>
+            </div>
+            
+            
+
+        </div>
+       
+    </div>
+        <!-- <h1>Sign Up</h1> -->
+    </div>
+
+    {% endblock content %}
     
-</body>
-</html>
+<!-- </body>
+</html> -->

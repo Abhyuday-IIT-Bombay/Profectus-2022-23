@@ -1,0 +1,233 @@
+.p-container{
+    margin: 0;
+}
+
+.land-container-1{
+    height: 100vh;
+    background-image: linear-gradient(#2E0249,#570A57,#A91079,#F806CC);
+}
+
+.land-container-2{
+    height: 100vh;
+}
+
+.testimonial{
+    height: 80vh;
+    background-image: linear-gradient(black,gray);
+}
+
+.faq{
+    height: 70vh;
+}
+
+.footer{
+    height: 40vh;
+    background-image: linear-gradient(black,grey);
+}
+
+.reg-container{
+    background-image:linear-gradient(#0d051b,rgb(39, 26, 39));
+    height: 100%;
+    width: 95vw;
+    display: flex;flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2vh;
+    margin: 5vh 0;
+}
+
+.l-reg-container{
+    background-image:linear-gradient(#0d051b,rgb(39, 26, 39));
+    height: 90vh;
+    width: 95vw;
+    display: flex;flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2vh;
+    margin: 5vh 0;
+}
+
+.reg-outer-container{
+    /* height: 80vh; */
+    height: auto;
+    background-image: linear-gradient(to bottom right ,#771b9b,#570A57,#A91079,#F806CC);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    border: 1px solid white;
+    display:flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 5vh;
+    background: rgba( 255, 255, 255, 0.05 );
+    box-shadow: 0 15vh 40vh 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 180%;
+    margin: 5vh 0;
+}
+.l-form{
+    border: 1px solid white;
+    display:flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 5vh;
+    background: rgba( 255, 255, 255, 0.05 );
+    box-shadow: 0 15vh 40vh 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    /* width: 180%; */
+    margin: 5vh 0;
+}
+
+.inner-form{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+input,select,option{
+    border-radius: 0.5vh;
+    border: 0.5px solid gray;
+    padding: 1.2vh;
+    background-color: transparent;
+    color: rgb(238, 190, 255);
+}
+
+select{
+    width: 15vw;
+    margin-bottom: 2.5vh;
+}
+
+/* button */
+/* button{
+    background-color: transparent;
+    padding: 1vh;
+    width: 20vh;
+} */
+
+.btn-11 {
+    background-color: transparent;
+    padding: 1vh;
+    width: 20vh;
+    border: 1px solid #9f10ff;
+    color: #9f10ff;
+    box-shadow: 0 0 5px #9f10ff, 0 0 5px #9f10ff inset;
+    transition: all 0.3s ease;
+  }
+  .btn-11:hover{
+     color: #dfd6e2;
+  }
+ 
+.content{
+    display: flex;
+}
+
+.guideline{
+    position: sticky;
+    color: white;
+    width: 50%;
+    margin:0 5vh ;
+}
+
+.prof-container{
+    display: flex;
+}
+
+.sidenav{
+    border-right:1px solid black ;
+    height: 100%; 
+    width: 160px; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    left: 0;
+  
+    overflow-x: hidden; 
+    padding-top: 20px;
+}
+
+.sidenav > ul {
+    list-style: none;
+}
+
+.sidenav > ul >li > a{
+    text-decoration: none;
+    padding: 2vh 1vh;
+}
+
+.iaf-content{
+    margin-left: 160px;
+    width: 100%;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    width: 100%;
+    padding: 1.5vh;
+   
+}
+
+.resume-direct{
+    display:flex;
+    flex-direction:column ;
+    /* align-items: center; */
+    justify-content: center;
+    padding: 2vh 0;
+}
+
+.resume-direct > input{
+    margin: 1vh 0vh;
+    padding: 1vh;
+    color: white;
+    width: 40vh;
+}
+
+#resbtn{
+    border: 1px solid blueviolet;
+    margin-top: 1vh;
+    padding: 1vh;
+    border-radius: 1vh;
+    /* width: 80%; */
+}
+
+.r-reg-outer-container{
+    height: 80vh;
+    height: auto;
+    background-image: linear-gradient(to bottom right ,#771b9b,#570A57,#A91079,#F806CC);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: white;
+}
+
+.generate-resume{
+    margin: 0;
+}
+
+.r-reg-container{
+    background-image:linear-gradient(#0d051b,rgb(39, 26, 39));
+    height: 100%;
+    width: 95vw;
+    display: flex;flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2vh;
+    margin: 5vh 0;
+}
+
+

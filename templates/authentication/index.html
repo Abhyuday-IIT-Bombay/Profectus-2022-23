@@ -1,12 +1,11 @@
+
 {% extends 'authentication/base.html' %}
 {% block content %}
 
 {% for message in messages%}
-<div class="alert alert-{{messages.tags}} alert-dismissible false show" role="alert">
-    <strong>Message:</strong>{{message}}
-    <button type="submit" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span> 
-    </button>
+<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin:0">
+  <strong>Opps!</strong> {{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 
 {% endfor %}
@@ -17,64 +16,63 @@
 <h4>You're successfully logged in</h4> {% endcomment %}
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Profectus</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Abhyuday - The Social Body of IIT Bombay</a>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <button class="btn btn-outline-success" ><a href="/logout" style="text-decoration:none;">Logout</a></button>
-        </form>
-      </div>
-    </div>
-  </nav>
-  <div class="container py-5">
-    <table class="table table-dark table-striped">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Company Name</th>
-            <th scope="col">IAF</th>
-            <th scope="col">Closes on</th>
-            <th scope="col">Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>C1</td>
-            <td>I1</td>
-            <td>8/6/22</td>
-            <td><button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#myModal1" >SignIn</button>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>C2</td>
-            <td>I2</td>
-            <td>8/6/22</td>
-            <td> <button class="btn btn-outline-success" >SignIn</button></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>C3</td>
-            <td>I3</td>
-            <td>8/6/22</td>
-            <td> <button class="btn btn-outline-success">SignIn</button></td>
-          </tr>
-        </tbody>
-      </table>
+
+<div class="prof-container">
+  <div class="sidenav">
+    <ul>
+      <li><a href="">Home</a> </li>
+      <li><a href="/resume/upload">Resume</a> </li>
+    </ul>
   </div>
 
+  <div class="iaf-content">
+    <div class="nav">
+      <div class="name">Profectus</div>
+      <div class="logout">
+        <button class="btn-outline-success"><a href="/logout"> Logout</a></button>
+      </div>
+    </div>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Company Name</th>
+          <th scope="col">IAF</th>
+          <th scope="col">Closes on</th>
+          <th scope="col">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>C1</td>
+          <td>I1</td>
+          <td>8/6/22</td>
+          <td><button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#myModal1" >SignIn</button>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>C2</td>
+          <td>I2</td>
+          <td>8/6/22</td>
+          <td> <button class="btn btn-outline-success" >SignIn</button></td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>C3</td>
+          <td>I3</td>
+          <td>8/6/22</td>
+          <td> <button class="btn btn-outline-success">SignIn</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
 
 
-  <div class="modal" id="myModal1">
+
+ <div class="modal" id="myModal1">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
   
@@ -91,11 +89,11 @@
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit velit et, neque debitis odio commodi blanditiis tempore sapiente id aut dolore! Quis autem, possimus fugiat reiciendis hic eaque. Sint nemo nostrum numquam voluptates consequuntur porro laborum deserunt pariatur reprehenderit soluta corporis id nesciunt aspernatur, error reiciendis molestias explicabo quasi sapiente?
         
             <br>
-          <!-- <p>Upload Your Resume Here</p> -->
+          <p>Upload Your Resume Here</p>
           <div class="container mt-5">
         </div>
           <div class="container mt-5">
-          <a href="/resume/upload"><button type="submit" class="btn btn-primary">Apply</button></a>  
+          <a href="/apply"><button type="submit" class="btn btn-primary">Apply</button></a>  
          
         </div>
             
@@ -126,8 +124,24 @@
 
 
 {%else%}
-<button><a href="/signup">SignUp</a></button>
-<button><a href="/login">Login</a></button>
+<div class="main-container">
+  <div class="land-container-1">
+
+  </div>
+  <div class="land-container-2">
+      <button><a href="/signup">Register</a></button>
+    
+  </div>
+  <div class="testimonial">
+
+  </div>
+  <div class="faq">
+
+  </div>
+  <div class="footer">
+
+  </div>
+</div>
 {% endif %}
 {% endblock content %}
 {% comment %} </body>

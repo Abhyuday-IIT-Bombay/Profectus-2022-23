@@ -101,7 +101,7 @@
                 </td>
                 <td>
                      <div class="rollno" style="text-align: right;">
-                    20xxxxxxxx
+                    {{roll}}
                     </div>
                 </td>
                 
@@ -110,7 +110,7 @@
             <tr>
                <td>
                     <div class="branch">
-                    {{email}}
+                    {{department}}
                     </div>
                 </td>
                 <td>
@@ -128,7 +128,7 @@
                 </td>
                 <td>
                     <div class="gender" style="text-align: right;">
-                    Male
+                    {{year}}
                     </div>
                 </td>
             </tr>
@@ -152,22 +152,22 @@
                 <td>Graduation</td>
                 <td>IIT Bombay</td>
                 <td>IIT Bombay</td>
-                <td>2022</td>
-                <td>10</td>
+                <td>{{endyear}}</td>
+                <td>{{cpi}}</td>
             </tr>
              <tr>
-                <td>Graduation</td>
-                <td>IIT Bombay</td>
-                <td>IIT Bombay</td>
-                <td>2022</td>
-                <td>10</td>
+                <td>Intermediate/+2</td>
+                <td>{{board12}}</td>
+                <td>{{college}}</td>
+                <td>{{year12}}</td>
+                <td>{{cpi12}}</td>
             </tr>
              <tr>
-                <td>Graduation</td>
-                <td>IIT Bombay</td>
-                <td>IIT Bombay</td>
-                <td>2022</td>
-                <td>10</td>
+                <td>Matriculaton</td>
+                <td>{{board10}}</td>
+                <td>{{school}}</td>
+                <td>{{year10}}</td>
+                <td>{{cpi10}}</td>
             </tr>
 
             </table>
@@ -188,12 +188,12 @@
                                 <tr>
                                     <td>
                                         <div class="title">
-                                            <li>Title</li> 
+                                            <li>{{ptitle1}}</li> 
                                         </div>
                                     </td>
                                     <td>
                                         <div class="time" style="text-align: right;">
-                                            (July'22-Present)
+                                            {{p1start}}-{{p1end}}
                                         </div>
                                     </td>
                                     
@@ -202,7 +202,7 @@
                         </div>    
                             
                         <div class="discription">
-                            {{por}}
+                            {{p1info}}
                         </div>
 
                         <div class="subsection-heading">
@@ -211,19 +211,19 @@
                                 <tr>
                                     <td>
                                         <div class="title">
-                                            <li>Title</li> 
+                                            <li>{{ptitle2}}</li> 
                                         </div>
                                     </td>
                                     <td>
                                         <div class="time" style="text-align: right;">
-                                            (July'22-Present)
+                                            {{p2start}}-{{p2end}}
                                         </div>
                                     </td>                    
                             </table>
                         </div>    
                             
                         <div class="discription">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, perferendis. Maxime, omnis facere explicabo qui aspernatur nobis ut dolorum illum, cum laudantium quas illo. Sequi ad dignissimos atque dolore eaque.
+                            {{p2info}}
                         </div>
                         
                         <div class="subsection-heading">                                
@@ -231,19 +231,19 @@
                                 <tr>
                                     <td>
                                         <div class="title">
-                                            <li>Title</li> 
+                                            <li>{{ptitle3}}</li> 
                                         </div>
                                     </td>
                                     <td>
                                         <div class="time" style="text-align: right;">
-                                            (July'22-Present)
+                                            {{p3start}}-{{p3end}}
                                         </div>
                                     </td>                    
                                 </table>                            
                         </div>    
                             
                         <div class="discription">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, perferendis. Maxime, omnis facere explicabo qui aspernatur nobis ut dolorum illum, cum laudantium quas illo. Sequi ad dignissimos atque dolore eaque.
+                            {{p3info}}
                         </div>                       
                     </ul>
                 </div>
@@ -262,19 +262,19 @@
                                 <tr>
                                     <td>
                                         <div class="title">
-                                            <li>Title</li> 
+                                            <li>{{proj1}}</li> 
                                         </div>
                                     </td>
                                     <td>
                                         <div class="time" style="text-align: right;">
-                                            (July'22-Present)
+                                            {{proj1start}}-{{proj1end}}
                                         </div>
                                     </td>                                                        
                             </table>       
                         </div>    
                             
                         <div class="discription">
-                            {{project}}
+                            {{proj1info}}
                         </div>
 
                         <div class="subsection-heading">    
@@ -282,19 +282,19 @@
                                 <tr>
                                     <td>
                                         <div class="title">
-                                            <li>Title</li> 
+                                            <li>{{proj2}}</li> 
                                         </div>
                                     </td>
                                     <td>
                                         <div class="time" style="text-align: right;">
-                                            (July'22-Present)
+                                            {{proj2start}}-{{proj2end}}
                                         </div>
                                     </td>                    
                                 </table>                            
                         </div>    
                             
                         <div class="discription">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, perferendis. Maxime, omnis facere explicabo qui aspernatur nobis ut dolorum illum, cum laudantium quas illo. Sequi ad dignissimos atque dolore eaque.
+                            {{proj2info}}
                         </div>
                         
                         <div class="subsection-heading">                               
@@ -302,18 +302,18 @@
                                 <tr>
                                     <td>
                                         <div class="title">
-                                            <li>Title</li> 
+                                            <li>{{proj3}}</li> 
                                         </div>
                                     </td>
                                     <td>
                                         <div class="time" style="text-align: right;">
-                                            (July'22-Present)
+                                            {{proj3start}}-{{proj3end}}
                                         </div>
                                     </td>                    
                             </table>                            
                         </div>        
                         <div class="discription">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, perferendis. Maxime, omnis facere explicabo qui aspernatur nobis ut dolorum illum, cum laudantium quas illo. Sequi ad dignissimos atque dolore eaque.
+                            {{proj3info}}
                         </div>                      
                     </ul>
                 </div>
@@ -329,7 +329,7 @@
                 <div class="discription">
                     <ul>
                         <li>
-                            {{skill}}
+                            {{techskill}}
                         </li>
                         <li>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, perferendis. Maxime, omnis facere explicabo qui aspernatur nobis ut dolorum illum, cum laudantium quas illo. Sequi ad dignissimos atque dolore eaque.
@@ -353,12 +353,12 @@
                                 <tr>
                                     <td>
                                         <div class="title">
-                                            <li>{{blog}}</li> 
+                                            <li>{{activity1info}}</li> 
                                         </div>
                                     </td>
                                     <td>
                                         <div class="time" style="text-align: right;">
-                                            (July'22-Present)
+                                            {{activity1start}}-{{activity1end}}
                                         </div>
                                     </td>                    
                             </table>                       
@@ -370,12 +370,12 @@
                                 <tr>
                                     <td>
                                         <div class="title">
-                                            <li>{{github}}</li> 
+                                            <li>{{activity2info}}</li> 
                                         </div>
                                     </td>
                                     <td>
                                         <div class="time" style="text-align: right;">
-                                            (July'22-Present)
+                                            {{activity2start}}-{{activity2end}}
                                         </div>
                                     </td>
                             </table>
@@ -387,12 +387,12 @@
                                 <tr>
                                     <td>
                                         <div class="title">
-                                            <li>{{other}}</li> 
+                                            <li>{{activity3info}}</li> 
                                         </div>
                                     </td>
                                     <td>
                                         <div class="time" style="text-align: right;">
-                                            (July'22-Present)
+                                            "{{activity3start}}-{{activity3end}}
                                         </div>
                                     </td>
                             </table>  

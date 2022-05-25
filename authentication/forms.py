@@ -5,7 +5,7 @@ from .models import Resume
 class ResumeForm(forms.ModelForm):
     class Meta:
         model = Resume
-        fields = ('name', 'author', 'pdf')
+        fields = ('Name', 'Resume')
 
 # importing the necessary libraries
 from io import BytesIO

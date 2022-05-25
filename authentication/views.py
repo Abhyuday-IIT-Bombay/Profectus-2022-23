@@ -10,7 +10,7 @@ import pandas as pd
 from django.http import JsonResponse
 from django.core.files.storage import FileSystemStorage
 from .forms import ResumeForm
-from .models import Resume , Make_Resume
+from .models import Resume , Make_Resume ,Apply
 
 from django.http import FileResponse
 import io
@@ -36,15 +36,29 @@ def signup(request):
         name = request.POST['name']
         email = request.POST['email']
         contact = request.POST['contact']
+        roll = request.POST['roll']
+        department = request.POST['department']
+        year = request.POST['year']
         # uploaded_file = request.POST['resume']
-        info = Account(name = name , email = email , contact = contact)
+
+        info = Account(name = name , email = email , contact = contact, roll= roll,department =department, year=year)
         info.save()
+
+        global rollvalue
+        def rollvalue():
+            return roll
+
+        global value
+        def value():
+            return name
+
+       
 
         
 
         if User.objects.filter(username=username):
             messages.error(request, "Username already exist! Please try some other username")
-            return redirect('home')
+            return redirect('signup')
 
         if User.objects.filter(email=email):
             messages.error(request, "Email already registered")   
@@ -54,21 +68,14 @@ def signup(request):
 
         if not username.isalnum():
             messages.error(request, "Username must be Alpha-Numeric!")
-            return redirect('home')
+            return redirect('signup')
 
-
-
-        myuser = User.objects.create_user(username, email, pass1)
-        myuser.first_name = name
-
-        myuser.save()
-        
-
-        messages.success(request, "Your Account has been created successfully!")
-
-
-        return redirect('login')
-
+        else:
+            myuser = User.objects.create_user(username, email, pass1)
+            myuser.first_name = name
+            myuser.save()
+            messages.success(request, "Your Account has been created successfully!")
+            return redirect('login')
     return render(request, "authentication/signup.html")
 
 def login(request):
@@ -82,7 +89,7 @@ def login(request):
         if user is not None:
             auth_login(request, user)
             name = user.first_name
-            
+                 
             return render(request, 'authentication/index.html', {'name':name})
         
         else:
@@ -126,113 +133,88 @@ def resume(request):
         if request.method =="POST":
             fname = request.POST['fname']
             lname = request.POST['lname']
-            email = request.POST['email']
-            loc1 = request.POST['loc1']
-            loc2 = request.POST['loc2']
-            seducation = request.POST['seducation']
-            sseducation = request.POST['sseducation']
-            graduation = request.POST['graduation']
-            por = request.POST['por']
-            course = request.POST['course']
-            project = request.POST['project']
-            skill = request.POST['skill']
-            blog = request.POST['blog']
-            github = request.POST['github']
-            other = request.POST['other']
-            resfile = Make_Resume(fname=fname, lname=lname,email=email,loc1=loc1,loc2=loc2,seducation=seducation,sseducation=sseducation,graduation=graduation,por=por,course=course,project=project,skill=skill,blog=blog,github=github,other=other)
+            department = request.POST['department']
+            roll = request.POST['roll']
+            year = request.POST['year']
+            startyear = request.POST['startyear']
+            endyear = request.POST['endyear']
+            cpi = request.POST['cpi']
+            board12 = request.POST['board12']
+            college = request.POST['college']
+            year12 =request.POST['year12']
+            cpi12 = request.POST['cpi12']
+            board10 = request.POST['board10']
+            school = request.POST['school']
+            year10 =request.POST['year10']
+            cpi10 = request.POST['cpi10']
+            ptitle1 = request.POST['ptitle1']
+            p1start = request.POST['p1start']
+            p1end = request.POST['p1end']
+            p1info = request.POST['p1info']
+            ptitle2 = request.POST['ptitle2']
+            p2start = request.POST['p2start']
+            p2end = request.POST['p2end']
+            p2info = request.POST['p2info']
+            ptitle3 = request.POST['ptitle3']
+            p3start = request.POST['p3start']
+            p3end = request.POST['p3end']
+            p3info = request.POST['p3info']
+            proj1 = request.POST['proj1']
+            proj1start = request.POST['proj1start']
+            proj1end = request.POST['proj1end']
+            proj1info = request.POST['proj1info']
+            proj2 = request.POST['proj2']
+            proj2start = request.POST['proj2start']
+            proj2end = request.POST['proj2end']
+            proj2info = request.POST['proj2info']
+            proj3 = request.POST['proj3']
+            proj3start = request.POST['proj3start']
+            proj3end = request.POST['proj3end']
+            proj3info = request.POST['proj3info']
+            techskill = request.POST['techskill']
+            activity1start = request.POST['activity1start']
+            activity1end = request.POST['activity1end']
+            activity1info = request.POST['activity1info']
+            
+            activity2start = request.POST['activity2start']
+            activity2end = request.POST['activity2end']
+            activity2info = request.POST['activity2info']
+            
+            activity3start = request.POST['activity3start']
+            activity3end = request.POST['activity3end']
+            activity3info = request.POST['activity3info']
+
+            resfile = Make_Resume(fname=fname, lname=lname,department=department,roll=roll,year=year,startyear=startyear,endyear=endyear,cpi=cpi,board12=board12,college=college,year12=year12,cpi12=cpi12,board10=board10,school=school,year10=year10,cpi10=cpi10,ptitle1=ptitle1,ptitle2=ptitle2,ptitle3=ptitle3,p1start=p1start,p2start=p2start,p3start=p3start,p1end=p1end,p2end=p2end,p3end=p3end,p1info=p1info,p2info=p2info,p3info=p3info,proj1=proj1,proj2=proj2,proj3=proj3,proj1start=proj1start,proj2start=proj2start,proj3start=proj3start,proj1end=proj1end,proj2end=proj2end,proj3end=proj3end,proj1info=proj1info,proj2info=proj2info,proj3info=proj3info,activity1start=activity1start,activity2start=activity2start,activity3start=activity3start,activity1end=activity1end,activity2end=activity2end,activity3end=activity3end,activity1info=activity1info,activity2info=activity2info,activity3info=activity3info,techskill=techskill)
             resfile.save()
             
             data ={
                 'fname':fname,
                 'lname':lname,
-                'email':email,
-                # 'loc1':loc1
-                # 'loc2':loc2
-                'seducation': seducation,
-                'sseducation':sseducation,
-                'graduation':graduation,
-                'por':por,
-                # 'course':course
-                'project':project,
-                'skill':skill,
-                'blog':blog,
-                'github':github,
-                'other':other
+                'department':department,
+                'roll':roll,'year':year,'startyear':startyear,'endyear':endyear,'cpi':cpi,'board12':board12,'college':college,'year12':year12,'cpi12':cpi12,'board10':board10,'school':school,'year10':year10,'cpi10':cpi10,'ptitle1':ptitle1,'ptitle2':ptitle2,'ptitle3':ptitle3,'p1start':p1start,'p2start':p2start,'p3start':p3start,'p1end':p1end,'p2end':p2end,'p3end':p3end,'p1info':p1info,'p2info':p2info,'p3info':p3info,'proj1':proj1,'proj2':proj2,'proj3':proj3,'proj1start':proj1start,'proj2start':proj2start,'proj3start':proj3start,'proj1end':proj1end,'proj2end':proj2end,'proj3end':proj3end,'proj1info':proj1info,'proj2info':proj2info,'proj3info':proj3info,'activity1start':activity1start,'activity2start':activity2start,'activity3start':activity3start,'activity1end':activity1end,'activity2end':activity2end,'activity3end':activity3end,'activity1info':activity1info,'activity2info':activity2info,'activity3info':activity3info,'techskill':techskill
+                
+                
             }
             global val
             def val():
                 return data
             # Return something
             return  render(request, 'authentication/upload_resume.html' ,{
-                 'fname':fname,
+                'fname':fname,
                 'lname':lname,
-                'email':email,
-                # 'loc1':loc1
-                # 'loc2':loc2
-                'seducation': seducation,
-                'sseducation':sseducation,
-                'graduation':graduation,
-                'por':por,
-                # 'course':course
-                'project':project,
-                'skill':skill,
-                'blog':blog,
-                'github':github,
-                'other':other
+                'department':department,
+                'roll':roll,'year':year,'startyear':startyear,'endyear':endyear,'cpi':cpi,'board12':board12,'college':college,'year12':year12,'cpi12':cpi12,'board10':board10,'school':school,'year10':year10,'cpi10':cpi10,'ptitle1':ptitle1,'ptitle2':ptitle2,'ptitle3':ptitle3,'p1start':p1start,'p2start':p2start,'p3start':p3start,'p1end':p1end,'p2end':p2end,'p3end':p3end,'p1info':p1info,'p2info':p2info,'p3info':p3info,'proj1':proj1,'proj2':proj2,'proj3':proj3,'proj1start':proj1start,'proj2start':proj2start,'proj3start':proj3start,'proj1end':proj1end,'proj2end':proj2end,'proj3end':proj3end,'proj1info':proj1info,'proj2info':proj2info,'proj3info':proj3info,'activity1start':activity1start,'activity2start':activity2start,'activity3start':activity3start,'activity1end':activity1end,'activity2end':activity2end,'activity3end':activity3end,'activity1info':activity1info,'activity2info':activity2info,'activity3info':activity3info ,'techskill':techskill
             })
         
 
-# def resume_list(request):
-#      # Create Bytestream buffer
-#         buf = io.BytesIO()
-#         # Create a canvas
-#         c = canvas.Canvas(buf, pagesize=letter, bottomup=0)
-#         # Create a text object
-#         textob = c.beginText()
-#         textob.setTextOrigin(inch, inch)
-#         textob.setFont("Helvetica", 14)
-
-#         resumes = Make_Resume.objects.all()
-
-#         lines =[]
-
-#         for resume in resumes:
-#             lines.append(resume.fname)
-#             lines.append(resume.lname)
-#             lines.append(resume.email)
-#             lines.append(resume.loc1)
-#             lines.append(resume.loc2)
-#             lines.append(resume.seducation)
-#             lines.append(resume.sseducation)
-#             lines.append(resume.graduation)
-#             lines.append(resume.por)
-#             lines.append(resume.course)
-#             lines.append(resume.project)
-#             lines.append(resume.skill)
-#             lines.append(resume.blog)
-#             lines.append(resume.github)
-#             lines.append(resume.other)
-#             lines.append(" ")
-
-#         for line in lines:
-# 		        textob.textLine(line)
-
-#         # Finish Up
-#         c.drawText(textob)
-#         c.showPage()
-#         c.save()
-#         buf.seek(0)
-
-#         # Return something
-#         return FileResponse(buf, as_attachment=True, filename='resume.pdf')
-    
 
 def upload_resume(request):
     if request.method =='POST':
         form = ResumeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponse("its working")
+            messages.success(request,"Resume Submitted Succesfully!")
+            return render(request,'authentication/upload_resume.html')
     else:
          form = ResumeForm()
     return render(request, 'authentication/upload_resume.html',{
@@ -253,3 +235,20 @@ class GeneratePdf(View):
          
          # rendering the template
         return HttpResponse(pdf, content_type='application/pdf')
+
+def back(request):
+    return render(request ,"authentication/index.html")
+
+def apply(request):
+    if request.method == 'POST':
+        name = value()
+        roll = rollvalue()
+        mode = request.POST['mode']
+        pref1 = request.POST['pref1']
+        pref2 = request.POST['pref2']
+        pref3 = request.POST['pref3']
+        pref4 = request.POST['pref4']
+        pref5 = request.POST['pref5']
+        apply_submit = Apply(name = name , roll=roll, mode = mode, pref1=pref1,pref2=pref2,pref3=pref3,pref4=pref4,pref5=pref5)
+        apply_submit.save()
+    return render(request, "authentication/apply.html")

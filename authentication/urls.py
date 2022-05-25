@@ -12,7 +12,9 @@ urlpatterns = [
    # path('list', views.resume_list, name='resume_list'),
    path('resume/upload', views.upload_resume, name='resume_upload'),
    path('resume', views.resume, name= 'resume'),
-   path('pdf',GeneratePdf.as_view())
+   path('pdf',GeneratePdf.as_view()),
+   path('back',views.back,name='back'),
+   path('apply',views.apply,name='apply'),
 
    # path('view',views.show_file, name='view'),
    # path('upload',views.resume_upload,name='upload')
