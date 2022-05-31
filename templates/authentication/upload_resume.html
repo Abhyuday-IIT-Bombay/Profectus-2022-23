@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Resume</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
@@ -13,6 +13,7 @@
   input,select{
     margin: 1vh;
     width: 50vh;
+    
   }
   textarea{
     margin: 1vh;
@@ -23,6 +24,17 @@
     border: 0.5px solid gray;
     padding: 1.2vh;
   }
+
+  input.invalid {
+  background-color: #ffdddd;
+ }
+
+  /* Hide all steps by default: */
+  .tab {
+    display: none;
+  }
+
+  
   
 </style>
 <body style="margin: 0;">
@@ -63,126 +75,179 @@
             <form class="row g-3" method="post", action="{% url 'resume'%}">
               {% csrf_token %}
               <div class="inner-form" >
-                <input type="text" name="fname"  placeholder="First name" >
-                <input type="text" name="lname" placeholder="Last name" >
-                <div class="input-group">
-                  <!-- <label>Department</label> -->
-                  <select name="department" >
-                      <option value="Aerospace Engineering">Aerospace Engineering</option>
-                      <option value="Biosciences and Bioengineering">Biosciences and Bioengineering</option>
-                      <option value="Centre of Studies in Resources Engineering (CSRE)">Centre of Studies in Resources Engineering (CSRE)</option>
-                      <option value="Chemical Engineering">Chemical Engineering</option>
-                      <option value="Chemistry">Chemistry</option>                          
-                      <option value="Civil Engineering">Civil Engineering</option>
-                      <option value="Computer Science & Engineering">Computer Science & Engineering</option>
-                      <option value="Earth Sciences">Earth Sciences</option>
-                      <option value="Electrical Engineering">Electrical Engineering</option>
-                      <option value="Energy Science and Engineering">Energy Science and Engineering</option>
-                      <option value="Environmental Science and Engineering">Environmental Science and Engineering</option>
-                      <option value="Humanities & Social Science">Humanities & Social Science</option>
-                      <option value="Industrial Design Centre">Industrial Design Centre</option>
-                      <option value="Industrial Engineering and Operations Research(IEOR)">Industrial Engineering and Operations Research(IEOR)</option>
-                      <option value="Mathematics">Mathematics</option>
-                      <option value="Mechanical Engineering">Mechanical Engineering</option>
-                      <option value="Metallurgical Engineering & Materials Science">Metallurgical Engineering & Materials Science</option>
-                      <option value="System and Control Engineering">System and Control Engineering</option>
-                      <option value="Physics">Physics</option>
-                      <option value="Shailesh J. Mehta School of Managemen">Shailesh J. Mehta School of Managemen</option>
-                  </select>
+                <div class="tab ">
+                  <div class="inner-form">
+                    <input type="text" name="fname"  placeholder="First name" oninput="this.className = ''">
+                  <input type="text" name="lname" placeholder="Last name" oninput="this.className = ''">
+                  <div class="input-group">
+                    <!-- <label>Department</label> -->
+                    <select name="department" oninput="this.className = ''">
+                        <option value="Aerospace Engineering">Aerospace Engineering</option>
+                        <option value="Biosciences and Bioengineering">Biosciences and Bioengineering</option>
+                        <option value="Centre of Studies in Resources Engineering (CSRE)">Centre of Studies in Resources Engineering (CSRE)</option>
+                        <option value="Chemical Engineering">Chemical Engineering</option>
+                        <option value="Chemistry">Chemistry</option>                          
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                        <option value="Earth Sciences">Earth Sciences</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Energy Science and Engineering">Energy Science and Engineering</option>
+                        <option value="Environmental Science and Engineering">Environmental Science and Engineering</option>
+                        <option value="Humanities & Social Science">Humanities & Social Science</option>
+                        <option value="Industrial Design Centre">Industrial Design Centre</option>
+                        <option value="Industrial Engineering and Operations Research(IEOR)">Industrial Engineering and Operations Research(IEOR)</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Metallurgical Engineering & Materials Science">Metallurgical Engineering & Materials Science</option>
+                        <option value="System and Control Engineering">System and Control Engineering</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Shailesh J. Mehta School of Managemen">Shailesh J. Mehta School of Managemen</option>
+                    </select>
+                  </div>
+                  <input type="text" name="roll" placeholder="Roll Number" oninput="this.className = ''">
+                  <div class="input-group">                  
+                    <select name="year" oninput="this.className = ''">
+                        <option value="Male">Male </option>
+                        <option value="Female">Female</option>
+                        <option value="other">Other</option>
+                        <option value="NA">Prefer not to answer</option>
+
+
+                    </select>
+                  </div>
+                  </div>
                 </div>
-                <input type="text" name="roll" placeholder="Roll Number">
-                <div class="input-group">
                 
-                <select name="year">
-                    <option value="Male">Male </option>
-                    <option value="Female">Female</option>
-                </select>
+                <div class="tab ">
+                  <div class="inner-form">
+                    <label for="" style="margin: 2vh 0vh">Graduation</label>
+                    <input oninput="this.className = ''" type="number" name="startyear" placeholder="Start Year">
+                    <input oninput="this.className = ''" type="number" name="endyear" placeholder="Graduation Year">
+                    <input oninput="this.className = ''" type="text" name="cpi" placeholder="CPI">
+
+                  </div>
                 </div>
-                <label for="" style="margin: 2vh 0vh">Graduation</label>
-                <input type="number" name="startyear" placeholder="Start Year">
-                <input type="number" name="endyear" placeholder="Graduation Year">
-                <input type="text" name="cpi" placeholder="CPI">
-
-                <label for=""style="margin: 2vh 0vh">Intermediate</label>
-                <input type="text" name="board12" placeholder="Board">
-                <input type="text" name="college" placeholder="College">
-                <input type="number" name="year12" placeholder="Passing Year">   
-                <input type="text" name="cpi12" placeholder="Percentage/CPI"> 
                 
-                <label for=""style="margin: 2vh 0vh">Matriculation</label>
-                <input type="text" name="board10" placeholder="Board">
-                <input type="text" name="school" placeholder="School">
-                <input type="number" name="year10" placeholder="Passing Year">   
-                <input type="text" name="cpi10" placeholder="Percentage/CPI"> 
+                <div class="tab">
+                  <div class="inner-form">
 
-                <label for=""style="margin: 2vh 0vh">Position of Responsibility</label>
-               
-                <label for="">First POR</label>
-                <input type="text" name="ptitle1" placeholder="Title 1">
-                <input type="text" name="p1start" placeholder="Starts At">
-                <input type="text" name="p1end" placeholder="Ends At">   
-                <textarea name="p1info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
-
-                <label for="">Second POR</label>
-                <input type="text" name="ptitle2" placeholder="Title 2">
-                <input type="text" name="p2start" placeholder="Starts At">
-                <input type="text" name="p2end" placeholder="Ends At">   
-                <textarea name="p2info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
-
-                <label for="">Third POR</label>
-                <input type="text" name="ptitle3" placeholder="Title 3">
-                <input type="text" name="p3start" placeholder="Starts At">
-                <input type="text" name="p3end" placeholder="Ends At">   
-                <textarea name="p3info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
-
-                <label for=""style="margin: 2vh 0vh">Key Projects</label>
-
-                <label for="">First Project</label>
-                <input type="text" name="proj1" placeholder="Title 1">
-                <input type="text" name="proj1start" placeholder="Starts At">
-                <input type="text" name="proj1end" placeholder="Ends At">   
-                <textarea name="proj1info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
-
-                <label for="">Second Project</label>
-                <input type="text" name="proj2" placeholder="Title 2">
-                <input type="text" name="proj2start" placeholder="Starts At">
-                <input type="text" name="proj2end" placeholder="Ends At">   
-                <textarea name="proj2info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
-
-                <label for="">Third Project</label>
-                <input type="text" name="proj3" placeholder="Title 3">
-                <input type="text" name="proj3start" placeholder="Starts At">
-                <input type="text" name="proj3end" placeholder="Ends At">   
-                <textarea name="proj3info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
-
-                <input type="text" name="techskill" placeholder="Technical Sills">
-
-                <label for=""style="margin: 2vh 0vh">Extra Cuuriculars</label>
-               
-                <label for="">Activity 1</label>
-                
-                <input type="text" name="activity1start" placeholder="Starts At">
-                <input type="text" name="activity1end" placeholder="Ends At">   
-                <textarea name="activity1info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
-
-                <label for="">Activity 2</label>
-               
-                <input type="text" name="activity2start" placeholder="Starts At">
-                <input type="text" name="activity2end" placeholder="Ends At">   
-                <textarea name="activity2info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
-
-                <label for="">Activity 3</label>
-               
-                <input type="text" name="activity3start" placeholder="Starts At">
-                <input type="text" name="activity3end" placeholder="Ends At">   
-                <textarea name="activity3info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
-
-                <div style="width:95%; display: flex; justify-content:space-between">
-                  <button type="submit" onclick="show()" class="custom-btn btn-11" style="margin-top: 4vh;">Upload</button>
-                  <a href="/pdf"class="custom-btn btn-11" style="text-align: center;text-decoration:none;margin-top: 4vh;">Download</a>
+                    <label for=""style="margin: 2vh 0vh">Intermediate</label>
+                    <input oninput="this.className = ''"oninput="this.className = ''"  type="text" name="board12" placeholder="Board">
+                    <input oninput="this.className = ''"oninput="this.className = ''"  type="text" name="college" placeholder="College">
+                    <input oninput="this.className = ''"oninput="this.className = ''"  type="number" name="year12" placeholder="Passing Year">   
+                    <input oninput="this.className = ''"oninput="this.className = ''"  type="text" name="cpi12" placeholder="Percentage/CPI"> 
+                  </div>
                 </div>
+                
+                <div class="tab">
+                  <div class="inner-form">
+
+                    <label for=""style="margin: 2vh 0vh">Matriculation</label>
+                    <input oninput="this.className = ''" type="text" name="board10" placeholder="Board">
+                    <input oninput="this.className = ''" type="text" name="school" placeholder="School">
+                    <input oninput="this.className = ''" type="number" name="year10" placeholder="Passing Year">   
+                    <input oninput="this.className = ''" type="text" name="cpi10" placeholder="Percentage/CPI"> 
+                  </div>
+
+                </div>
+
+                <div class="tab">
+                  <div class="inner-form">
+
+                    <label for=""style="margin: 2vh 0vh">Position of Responsibility</label>
+                   
+                    <label for="">First POR</label>
+                    <input oninput="this.className = ''" type="text" name="ptitle1" placeholder="Title 1">
+                    <input oninput="this.className = ''" type="text" name="p1start" placeholder="Starts At">
+                    <input oninput="this.className = ''" type="text" name="p1end" placeholder="Ends At">   
+                    <textarea oninput="this.className = ''" name="p1info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+    
+                    <label for="">Second POR</label>
+                    <input oninput="this.className = ''" type="text" name="ptitle2" placeholder="Title 2">
+                    <input oninput="this.className = ''" type="text" name="p2start" placeholder="Starts At">
+                    <input oninput="this.className = ''" type="text" name="p2end" placeholder="Ends At">   
+                    <textarea oninput="this.className = ''" name="p2info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+    
+                    <label for="">Third POR</label>
+                    <input oninput="this.className = ''" type="text" name="ptitle3" placeholder="Title 3">
+                    <input oninput="this.className = ''" type="text" name="p3start" placeholder="Starts At">
+                    <input oninput="this.className = ''" type="text" name="p3end" placeholder="Ends At">   
+                    <textarea oninput="this.className = ''" name="p3info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+                  </div>
+
+                </div>
+
+                <div class="tab">
+                  <div class="inner-form">
+
+                    <label for=""style="margin: 2vh 0vh">Key Projects</label>
+    
+                    <label for="">First Project</label>
+                    <input oninput="this.className = ''" type="text" name="proj1" placeholder="Title 1">
+                    <input oninput="this.className = ''" type="text" name="proj1start" placeholder="Starts At">
+                    <input oninput="this.className = ''" type="text" name="proj1end" placeholder="Ends At">   
+                    <textarea oninput="this.className = ''" name="proj1info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+    
+                    <label for="">Second Project</label>
+                    <input oninput="this.className = ''" type="text" name="proj2" placeholder="Title 2">
+                    <input oninput="this.className = ''" type="text" name="proj2start" placeholder="Starts At">
+                    <input oninput="this.className = ''" type="text" name="proj2end" placeholder="Ends At">   
+                    <textarea oninput="this.className = ''" name="proj2info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+    
+                    <label for="">Third Project</label>
+                    <input oninput="this.className = ''" type="text" name="proj3" placeholder="Title 3">
+                    <input oninput="this.className = ''" type="text" name="proj3start" placeholder="Starts At">
+                    <input oninput="this.className = ''" type="text" name="proj3end" placeholder="Ends At">   
+                    <textarea oninput="this.className = ''" name="proj3info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+                  </div>
+
+                </div>
+
+                <div class="tab">
+                  <div class="inner-form">
+
+                    <input oninput="this.className = ''" type="text" name="techskill" placeholder="Technical Sills">
+    
+                    <label for=""style="margin: 2vh 0vh">Extra Cuuriculars</label>
+                   
+                    <label for="">Activity 1</label>
+                    
+                    <input oninput="this.className = ''" type="text" name="activity1start" placeholder="Starts At">
+                    <input oninput="this.className = ''" type="text" name="activity1end" placeholder="Ends At">   
+                    <textarea oninput="this.className = ''" name="activity1info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+    
+                    <label for="">Activity 2</label>
+                   
+                    <input oninput="this.className = ''" type="text" name="activity2start" placeholder="Starts At">
+                    <input oninput="this.className = ''" type="text" name="activity2end" placeholder="Ends At">   
+                    <textarea oninput="this.className = ''" name="activity2info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+    
+                    <label for="">Activity 3</label>
+                   
+                    <input oninput="this.className = ''" type="text" name="activity3start" placeholder="Starts At">
+                    <input oninput="this.className = ''" type="text" name="activity3end" placeholder="Ends At">   
+                    <textarea oninput="this.className = ''" name="activity3info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+                  </div>
+
+                </div>
+
+                <div style="width:95%; display: flex; justify-content:center;">
+                  <!-- <button type="submit" onclick="show()" class="custom-btn btn-11" style="margin-top: 4vh;">Upload</button> -->
+                  <div style="overflow:auto;">
+                    <div style="float:center;">
+                      <button class="custom-btn btn-11" type="button" id="prevBtn" onclick="nextPrev(-1)" >Previous</button>
+                      <button class="custom-btn btn-11" type="button" id="nextBtn" onclick="nextPrev(1)" >Next</button>
+                    </div>
+                  </div>
+                </div>
+                <a href="/pdf"class="custom-btn btn-11" style="text-align: center;text-decoration:none;margin-top: 4vh; align-self: center;">Download</a>
               </div>
-
+              <div style="text-align:center;margin-top:40px;">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+              </div>
 
             </form>
           </div>
@@ -198,13 +263,77 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 <script>
-  function show() {
-    var x = document.getElementById("download");
-  if (x.style.display === "none") {
-    x.style.display = "block";
+  var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
   } else {
-    x.style.display = "none";
+    document.getElementById("prevBtn").style.display = "inline";
   }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
   }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+
 </script>
 </html>

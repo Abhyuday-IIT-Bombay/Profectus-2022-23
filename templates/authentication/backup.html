@@ -1,0 +1,651 @@
+
+{% extends 'authentication/base.html' %}
+{% block content %}
+{% load static %}
+
+{% for message in messages%}
+<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin:0">
+  <strong>Opps!</strong> {{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+{% endfor %}
+
+
+{% if user.is_authenticated%}
+{% comment %} <h3>hello {{name}}</h3>
+<h4>You're successfully logged in</h4> {% endcomment %}
+
+
+
+
+<div class="prof-container">
+  <div class="sidenav">
+    <div class="dash-logo"><a href="https://www.abhyudayiitb.org/"><img src="{% static 'images/homepage/logo.png' %}" alt=""></a></div>
+    <div class="nav-tab active"  >
+      <i class="fa fa-home " style="margin-right: 3vh;"></i>Home
+    </div>
+    <div class="nav-tab">
+      <a href="/resume/upload" style="text-decoration: none ; color: white; ;"><i class="fa fa-file" style="margin-right: 3vh;"></i>Resume</a>
+    </div>
+    <div class="prefernce">
+      <h3 style="text-align: center;">Prefernces</h3>
+      <form class="row g-3" method="post", action="{% url 'apply'%}">
+        {% csrf_token %}
+        <div class="input-group" style="flex-direction:column;">
+                          <label style="text-align: center;">Prefernce 1</label> 
+                          <select name="pref1" style="width: 80%; align-self: center;">
+                              <option value="c1">c1</option>
+                              <option value="c2">c2</option>
+                              <option value="c3">c3</option>
+                              <option value="c4">c4</option>
+                              <option value="c5">c5</option>
+                              <option value="c6">c6</option>
+
+                          </select>
+                          <br/>
+                          <label style="text-align: center;">Prefrence 2</label> 
+                          <select name="pref2" style="width: 80%; align-self: center;">
+                            <option value="c1">c1</option>
+                            <option value="c2">c2</option>
+                            <option value="c3">c3</option>
+                            <option value="c4">c4</option>
+                            <option value="c5">c5</option>
+                            <option value="c6">c6</option>
+
+                          </select>
+                          <br/>
+                          <label style="text-align: center;">Prefrence 3</label> 
+                          <select name="pref3" style="width: 80%; align-self: center;">
+                            <option value="c1">c1</option>
+                            <option value="c2">c2</option>
+                            <option value="c3">c3</option>
+                            <option value="c4">c4</option>
+                            <option value="c5">c5</option>
+                            <option value="c6">c6</option>
+
+                          </select>
+                          
+                          <div style=" display: flex; justify-content: center;">
+                          <button type="submit"  class="apply-btn" style="margin-top: 4vh; ">Apply</button>
+                          </div>
+                      </div>
+
+
+      </form>
+    </div>
+    
+    <div class="logout"> 
+    <button class="logout-btn"><a href="/logout"> <i class="fa fa-sign-out" aria-hidden="true" style="margin-right: 1vh;"></i>Logout</a></button> 
+    </div>
+  </div>
+  
+  <div class="iaf-content">
+    <div style="z-index: 2;">
+      <div class="nav">
+        <div class="name tab">Profectus</div>
+       
+      </div>
+    </div>
+    <div class="iaf-lower-content ">
+
+      <div class="row "  >
+        <div class="col">
+          <div class="flip-card" style="width:45vh;height:45vh;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="{% static 'images/dashboard/Peta.png' %}" alt="Avatar" style="width:300px;height:300px;">
+                <div class="title-inner">
+                  Card Title
+                </div>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Details</button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header" >
+                <h4 class="modal-title">Company Name</h4>
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+              </div>
+              <div class="modal-body">
+                <h2>Job Discription:</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi hic, ut recusandae dolorum quaerat eligendi quidem minus harum ipsum in quos eveniet assumenda? Illum quasi enim architecto earum delectus odio doloribus fuga, ullam saepe, sapiente officiis hic quo, fugiat voluptatem. At tempora laboriosam architecto est ad officiis reiciendis, totam molestiae ducimus dolorum dicta repellat maiores eius impedit saepe animi velit dolore inventore exercitationem sapiente eveniet nobis similique ratione necessitatibus. Dolores quasi excepturi laboriosam earum illum nam eligendi alias enim pariatur perferendis, officia iusto debitis repellat fuga sint, odio at atque iure, nisi molestiae accusantium animi. Ab in veritatis deserunt incidunt.</p>
+              </div>
+              <select name="location_one" id="location_one">
+                <option value="">Prefernce</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>	 
+               </select>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="flip-card" style="width:45vh;height:45vh;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="{% static 'images/dashboard/Peta.png' %}" alt="Avatar" style="width:300px;height:300px;">
+                <div class="title-inner">
+                  Card Title
+                </div>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Details</button>
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header" >
+                <h4 class="modal-title">Company Name</h4>
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+              </div>
+              <div class="modal-body">
+                <h2>Job Discription:</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi hic, ut recusandae dolorum quaerat eligendi quidem minus harum ipsum in quos eveniet assumenda? Illum quasi enim architecto earum delectus odio doloribus fuga, ullam saepe, sapiente officiis hic quo, fugiat voluptatem. At tempora laboriosam architecto est ad officiis reiciendis, totam molestiae ducimus dolorum dicta repellat maiores eius impedit saepe animi velit dolore inventore exercitationem sapiente eveniet nobis similique ratione necessitatibus. Dolores quasi excepturi laboriosam earum illum nam eligendi alias enim pariatur perferendis, officia iusto debitis repellat fuga sint, odio at atque iure, nisi molestiae accusantium animi. Ab in veritatis deserunt incidunt.</p>
+              </div>
+              <select name="location_two" id="location_two">
+                <option value="">Prefernce</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>	 
+               </select>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="flip-card" style="width:45vh;height:45vh;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="{% static 'images/dashboard/Peta.png' %}" alt="Avatar" style="width:300px;height:300px;">
+                <div class="title-inner">
+                  Card Title
+                </div>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Details</button>
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header" >
+              <h4 class="modal-title">Company Name</h4>
+              <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            </div>
+            <div class="modal-body">
+              <h2>Job Discription:</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi hic, ut recusandae dolorum quaerat eligendi quidem minus harum ipsum in quos eveniet assumenda? Illum quasi enim architecto earum delectus odio doloribus fuga, ullam saepe, sapiente officiis hic quo, fugiat voluptatem. At tempora laboriosam architecto est ad officiis reiciendis, totam molestiae ducimus dolorum dicta repellat maiores eius impedit saepe animi velit dolore inventore exercitationem sapiente eveniet nobis similique ratione necessitatibus. Dolores quasi excepturi laboriosam earum illum nam eligendi alias enim pariatur perferendis, officia iusto debitis repellat fuga sint, odio at atque iure, nisi molestiae accusantium animi. Ab in veritatis deserunt incidunt.</p>
+            </div>
+            <select name="location_three" id="location_three">
+              <option value="">Prefernce</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>	 
+             </select>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- row 2 -->
+
+      <div class="row "  >
+        <div class="col">
+          <div class="flip-card" style="width:45vh;height:45vh;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="{% static 'images/dashboard/Peta.png' %}" alt="Avatar" style="width:300px;height:300px;">
+                <div class="title-inner">
+                  Card Title
+                </div>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Details</button>
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header" >
+                <h4 class="modal-title">Company Name</h4>
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+              </div>
+              <div class="modal-body">
+                <h2>Job Discription:</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi hic, ut recusandae dolorum quaerat eligendi quidem minus harum ipsum in quos eveniet assumenda? Illum quasi enim architecto earum delectus odio doloribus fuga, ullam saepe, sapiente officiis hic quo, fugiat voluptatem. At tempora laboriosam architecto est ad officiis reiciendis, totam molestiae ducimus dolorum dicta repellat maiores eius impedit saepe animi velit dolore inventore exercitationem sapiente eveniet nobis similique ratione necessitatibus. Dolores quasi excepturi laboriosam earum illum nam eligendi alias enim pariatur perferendis, officia iusto debitis repellat fuga sint, odio at atque iure, nisi molestiae accusantium animi. Ab in veritatis deserunt incidunt.</p>
+              </div>
+              <select name="location_four" id="location_four">
+                <option value="">Prefernce</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>	 
+               </select>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="flip-card" style="width:45vh;height:45vh;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="{% static 'images/dashboard/Peta.png' %}" alt="Avatar" style="width:300px;height:300px;">
+                <div class="title-inner">
+                  Card Title
+                </div>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Details</button>
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header" >
+                <h4 class="modal-title">Company Name</h4>
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+              </div>
+              <div class="modal-body">
+                <h2>Job Discription:</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi hic, ut recusandae dolorum quaerat eligendi quidem minus harum ipsum in quos eveniet assumenda? Illum quasi enim architecto earum delectus odio doloribus fuga, ullam saepe, sapiente officiis hic quo, fugiat voluptatem. At tempora laboriosam architecto est ad officiis reiciendis, totam molestiae ducimus dolorum dicta repellat maiores eius impedit saepe animi velit dolore inventore exercitationem sapiente eveniet nobis similique ratione necessitatibus. Dolores quasi excepturi laboriosam earum illum nam eligendi alias enim pariatur perferendis, officia iusto debitis repellat fuga sint, odio at atque iure, nisi molestiae accusantium animi. Ab in veritatis deserunt incidunt.</p>
+              </div>
+              <select name="location_five" id="location_five">
+                <option value="">Prefernce</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>	 
+               </select>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="flip-card" style="width:45vh;height:45vh;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="{% static 'images/dashboard/Peta.png' %}" alt="Avatar" style="width:300px;height:300px;">
+                <div class="title-inner">
+                  Card Title
+                </div>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Details</button>
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header" >
+                <h4 class="modal-title">Company Name</h4>
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+              </div>
+              <div class="modal-body">
+                <h2>Job Discription:</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi hic, ut recusandae dolorum quaerat eligendi quidem minus harum ipsum in quos eveniet assumenda? Illum quasi enim architecto earum delectus odio doloribus fuga, ullam saepe, sapiente officiis hic quo, fugiat voluptatem. At tempora laboriosam architecto est ad officiis reiciendis, totam molestiae ducimus dolorum dicta repellat maiores eius impedit saepe animi velit dolore inventore exercitationem sapiente eveniet nobis similique ratione necessitatibus. Dolores quasi excepturi laboriosam earum illum nam eligendi alias enim pariatur perferendis, officia iusto debitis repellat fuga sint, odio at atque iure, nisi molestiae accusantium animi. Ab in veritatis deserunt incidunt.</p>
+              </div>
+              <select name="location_six" id="location_six">
+                <option value="">Prefernce</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>	 
+               </select>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    
+    
+  </div>
+</div> 
+
+
+
+  
+       
+       
+
+<script src="{% static 'js/script.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+
+
+
+{%else%}
+<div class="main-container">
+  <div class="land-container-1">
+      <img src="{% static 'images/homepage/Layer_2.png' %}" id="layer2" alt="">
+      <a href="https://www.abhyudayiitb.org/"><img src="{% static 'images/homepage/logo.png' %}" id="logo" alt=""></a> 
+      <div class="new-nav">
+        <ul>
+          <li>Home</li>
+          <li><a href="#about" style="text-decoration: none; color:white;">About</a></li>
+          <li><a href="#testimonial" style="text-decoration: none; color:white;">Testimonials</a></li>
+          <li><a href="#contact" style="text-decoration: none; color:white;">Contact Us</a></li>
+          
+        </ul>
+      </div>
+
+      <div class="title">PROFECTUS</div>
+      <div class="sub-title">FELLOWSHIP PROGRAM OF ABHYUDAY</div>
+      
+      <button class="regbtn"><a href="/signup">Register</a></button>
+
+  </div>
+  <div class="land-container-2" id="about">
+     
+      <div class="about-profectus">
+        <div class="heading">About Profectus</div>
+        <div class="discription">As they say, <br> “The most practical, beautiful, workable philosophy in the world won't work- if you won't”, Abhyuday IIT Bombay provides the young generation an opportunity to get involved in social work through fellowship program, PROFECTUS. Register for summer internship opprtunities in the social sector.The interview process will begin after end semester and all final selections will be done before 28th June.</div>
+      </div>
+      <div class="about-fellowship">
+        <div id="fellow-heading">About Fellowship Program</div>
+        <div id="fellow-discription">The fellowship program of Abhyuday which gives youth the opportunity to engage themselves in social work by working with NGOs, social startups and alumni of IIT Bombay working in this field. Fellowships focuses on providing an insight into various sectors in the field of social work whilst providing a valuable output for the society. The work students do in their fellowships ranges hugely. It includes communication, impact analysis, fundraising, planning and organizing support groups, work with coalition groups, help with grant writing and other profiles which are important in socially impactful organisation. Fellows work under the direct supervision of professional social workers or social leaders who have extensive experience in the field. </div>
+      </div>
+    
+  </div>
+
+  <div class="testimonial" id="testimonial">
+    <h1 style="text-align: center;margin-top:3vh;">Testimonials</h1>
+      <div id="carouselExample" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#carouselExample" data-bs-slide-to="1"></li>
+            <li data-bs-target="#carouselExample" data-bs-slide-to="2"></li>
+            <li data-bs-target="#carouselExample" data-bs-slide-to="3"></li>
+
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col">
+                  <section class="t-bq-section" id="paul">
+                    <div class="t-bq-wrapper t-bq-wrapper-boxed">
+                        <div class="t-bq-quote t-bq-quote-paul">
+                            <div class="t-bq-quote-paul-userpic"></div>
+                            <div class="t-bq-quote-paul-qmark">
+                                &#10077;
+                            </div>
+                            <div class="t-bq-quote-paul-pattern">
+                            </div>
+                            <div class="t-bq-quote-paul-base">
+                                <blockquote class="t-bq-quote-paul-text" cite="Strugatsky Brothers">
+                                  Overall experience was good. The team was helpful, I would like to thank team Abhyuday for giving me such opportunity. Rahul, founder of the NGO, helped me at every step. He was just the mentor we needed.
+                                </blockquote>
+                                <div class="t-bq-quote-paul-meta">
+                                    <div class="t-bq-quote-paul-meta-info">
+                                        <div class="t-bq-quote-paul-author"><cite>Kumar Saurabh </cite></div>
+                                        <div class="t-bq-quote-paul-source"><span>Chemical Engineering (UG - Third Year)</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="col">
+                  <section class="t-bq-section" id="paul">
+                    <div class="t-bq-wrapper t-bq-wrapper-boxed">
+                        <div class="t-bq-quote t-bq-quote-paul">
+                            <div class="t-bq-quote-paul-userpic"></div>
+                            <div class="t-bq-quote-paul-qmark">
+                                &#10077;
+                            </div>
+                            <div class="t-bq-quote-paul-pattern">
+                            </div>
+                            <div class="t-bq-quote-paul-base">
+                                <blockquote class="t-bq-quote-paul-text" cite="Strugatsky Brothers">
+                                  I had a very good experience while doing internship, learnt a lot of things, done lots of fun activities. Thanks to Abhyuday. 
+                                </blockquote>
+                                <div class="t-bq-quote-paul-meta">
+                                    <div class="t-bq-quote-paul-meta-info">
+                                        <div class="t-bq-quote-paul-author"><cite>Yash Kumar </cite></div>
+                                        <div class="t-bq-quote-paul-source"><span>Civil Engineering (UG - Third Year)</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </section>
+                </div>
+                
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col">
+                  <section class="t-bq-section" id="paul">
+                    <div class="t-bq-wrapper t-bq-wrapper-boxed">
+                        <div class="t-bq-quote t-bq-quote-paul">
+                            <div class="t-bq-quote-paul-userpic"></div>
+                            <div class="t-bq-quote-paul-qmark">
+                                &#10077;
+                            </div>
+                            <div class="t-bq-quote-paul-pattern">
+                            </div>
+                            <div class="t-bq-quote-paul-base">
+                                <blockquote class="t-bq-quote-paul-text" cite="Strugatsky Brothers">
+                                  I had a great experience with Profectus'21. The registration and complete selection process went smoothly.  The company coordinator was also friendly and easily approachable. Members of Abhyuday, who were the organizers of Profectus, took updates on a regular basis to ensure the process is going well
+                                </blockquote>
+                                <div class="t-bq-quote-paul-meta">
+                                    <div class="t-bq-quote-paul-meta-info">
+                                        <div class="t-bq-quote-paul-author"><cite>Aarya Chaudhari</cite></div>
+                                        <div class="t-bq-quote-paul-source"><span>MEMS (UG - Second Year)</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="col">
+                  <section class="t-bq-section" id="paul">
+                    <div class="t-bq-wrapper t-bq-wrapper-boxed">
+                        <div class="t-bq-quote t-bq-quote-paul">
+                            <div class="t-bq-quote-paul-userpic"></div>
+                            <div class="t-bq-quote-paul-qmark">
+                                &#10077;
+                            </div>
+                            <div class="t-bq-quote-paul-pattern">
+                            </div>
+                            <div class="t-bq-quote-paul-base">
+                                <blockquote class="t-bq-quote-paul-text" cite="Strugatsky Brothers">
+                                  It was a great experience to help out the NGO who focused on teaching orphaned children and provided them elementary education with the help of games and activities.
+                                </blockquote>
+                                <div class="t-bq-quote-paul-meta">
+                                    <div class="t-bq-quote-paul-meta-info">
+                                        <div class="t-bq-quote-paul-author"><cite>Nitya Garg</cite></div>
+                                        <div class="t-bq-quote-paul-source"><span>SJMSOM (Second Year)</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </section>
+                </div>
+                
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col">
+                  <section class="t-bq-section" id="paul">
+                    <div class="t-bq-wrapper t-bq-wrapper-boxed">
+                        <div class="t-bq-quote t-bq-quote-paul">
+                            <div class="t-bq-quote-paul-userpic"></div>
+                            <div class="t-bq-quote-paul-qmark">
+                                &#10077;
+                            </div>
+                            <div class="t-bq-quote-paul-pattern">
+                            </div>
+                            <div class="t-bq-quote-paul-base">
+                                <blockquote class="t-bq-quote-paul-text" cite="Strugatsky Brothers">
+                                  Working as a fundraiser and handling logistics work, my experience at Pranyas Development foundation has been enriching. The tasks that we were assigned on a daily basis were unique and interesting, which eventually helped me discover my inner potential in the domain of selfless work. This internship helped me learn about various skills like time management, effective communication, critical thinking, problem-solving, etc.
+                                </blockquote>
+                                <div class="t-bq-quote-paul-meta">
+                                    <div class="t-bq-quote-paul-meta-info">
+                                        <div class="t-bq-quote-paul-author"><cite>Shivangi Sharma </cite></div>
+                                        <div class="t-bq-quote-paul-source"><span>Chemical Engineering (UG - Second Year)</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="col">
+                  <section class="t-bq-section" id="paul">
+                    <div class="t-bq-wrapper t-bq-wrapper-boxed">
+                        <div class="t-bq-quote t-bq-quote-paul">
+                            <div class="t-bq-quote-paul-userpic"></div>
+                            <div class="t-bq-quote-paul-qmark">
+                                &#10077;
+                            </div>
+                            <div class="t-bq-quote-paul-pattern">
+                            </div>
+                            <div class="t-bq-quote-paul-base">
+                                <blockquote class="t-bq-quote-paul-text" cite="Strugatsky Brothers">
+                                  Overall experience was good. We created QR codes for women's products, then we created an online platform using Google sites for them and also added videos to showcase their stories. Overall we made efforts to develop their business. It was a good experience.
+                                </blockquote>
+                                <div class="t-bq-quote-paul-meta">
+                                    <div class="t-bq-quote-paul-meta-info">
+                                        <div class="t-bq-quote-paul-author"><cite>Yashwant Nigdikar</cite></div>
+                                        <div class="t-bq-quote-paul-source"><span>CTARA (Second Year)</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </section>
+                </div>
+                
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col">
+                  <section class="t-bq-section" id="paul">
+                    <div class="t-bq-wrapper t-bq-wrapper-boxed">
+                        <div class="t-bq-quote t-bq-quote-paul">
+                            <div class="t-bq-quote-paul-userpic"></div>
+                            <div class="t-bq-quote-paul-qmark">
+                                &#10077;
+                            </div>
+                            <div class="t-bq-quote-paul-pattern">
+                            </div>
+                            <div class="t-bq-quote-paul-base">
+                                <blockquote class="t-bq-quote-paul-text" cite="Strugatsky Brothers">
+                                  "It was my first 1 month break at IITB and Profectus helped me bag an intern. It was very a smooth experience — getting interviewed and joining the internship. 
+                                    The intern experience was also unexpectedly nice. I met new people from our own Institute, and learnt a thing or two, working with them."
+                                </blockquote>
+                                <div class="t-bq-quote-paul-meta">
+                                    <div class="t-bq-quote-paul-meta-info">
+                                        <div class="t-bq-quote-paul-author"><cite>Aryan Bhardwaj</cite></div>
+                                        <div class="t-bq-quote-paul-source"><span>Mechanical engineering (UG - Second Year)</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="col">
+                  <section class="t-bq-section" id="paul">
+                    <div class="t-bq-wrapper t-bq-wrapper-boxed">
+                        <div class="t-bq-quote t-bq-quote-paul">
+                            <div class="t-bq-quote-paul-userpic"></div>
+                            <div class="t-bq-quote-paul-qmark">
+                                &#10077;
+                            </div>
+                            <div class="t-bq-quote-paul-pattern">
+                            </div>
+                            <div class="t-bq-quote-paul-base">
+                                <blockquote class="t-bq-quote-paul-text" cite="Strugatsky Brothers">
+                                  So grateful to have got such an opportunity. I had a wonderful experience taking workshops with children in which we tried to let them get comfortable with us and then slowly instilled in them a sense of compassion and care for animals. We took creative ways like puppet shows, quizzes etc. It is magical how while doing all this work, I got more motivated to think about my daily choices and check them if they were animal compassionate (like choosing vegan clothing, makeup accessories,etc.). All of us must give it a thought.
+                                </blockquote>
+                                <div class="t-bq-quote-paul-meta">
+                                    <div class="t-bq-quote-paul-meta-info">
+                                        <div class="t-bq-quote-paul-author"><cite>Anika matanhelia </cite></div>
+                                        <div class="t-bq-quote-paul-source"><span>Energy science (Second Year)</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </section>
+                </div>
+                
+              </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev" >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next" >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+      </div>
+
+    
+  </div>
+  
+  <div class="footer" id="contact">
+    <div id="contact-land">Contact Us</div>
+    <div class="managers">
+      <div class="manage-inner">
+        <div>Achira Jain</div> 
+        <div class="department">
+          Competitions Manager
+        </div>
+      </div>
+      <div class="manage-inner">
+        <div>Satyan Reddy</div> 
+        <div class="department">
+          Events and Fellowships Manager
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endif %}
+{% endblock content %}
+{% comment %} </body>
+</html> {% endcomment %}

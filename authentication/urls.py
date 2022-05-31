@@ -14,7 +14,9 @@ urlpatterns = [
    path('resume', views.resume, name= 'resume'),
    path('pdf',GeneratePdf.as_view()),
    path('back',views.back,name='back'),
-   path('apply',views.apply,name='apply'),
+   path('apply',views.apply, name='apply'),
+ 
+
 
    # path('view',views.show_file, name='view'),
    # path('upload',views.resume_upload,name='upload')

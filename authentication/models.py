@@ -82,13 +82,13 @@ class Make_Resume(models.Model):
 class Apply(models.Model):
     name = models.CharField( max_length=100 ,default="")
     roll = models.CharField( max_length=100 ,default="")
-    mode = models.CharField( max_length=100 ,default="")
     pref1 = models.CharField( max_length=100 ,default="")
     pref2 = models.CharField( max_length=100 ,default="")
     pref3 = models.CharField( max_length=100 ,default="")
-    pref4 = models.CharField( max_length=100 ,default="")
-    pref5 = models.CharField( max_length=100 ,default="")
 
+
+    
+   
 
 
 

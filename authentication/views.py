@@ -39,6 +39,9 @@ def signup(request):
         roll = request.POST['roll']
         department = request.POST['department']
         year = request.POST['year']
+        request.session['name'] = name
+        request.session['roll'] = roll
+
         # uploaded_file = request.POST['resume']
 
         info = Account(name = name , email = email , contact = contact, roll= roll,department =department, year=year)
@@ -62,9 +65,12 @@ def signup(request):
 
         if User.objects.filter(email=email):
             messages.error(request, "Email already registered")   
+            return redirect('signup')
 
         if pass1 != pass2:
             messages.error(request, "Passwords can't be different")
+            return redirect('signup')
+
 
         if not username.isalnum():
             messages.error(request, "Username must be Alpha-Numeric!")
@@ -241,14 +247,19 @@ def back(request):
 
 def apply(request):
     if request.method == 'POST':
-        name = value()
-        roll = rollvalue()
-        mode = request.POST['mode']
+        name = request.session['name'] 
+        roll = request.session['roll'] 
         pref1 = request.POST['pref1']
         pref2 = request.POST['pref2']
         pref3 = request.POST['pref3']
-        pref4 = request.POST['pref4']
-        pref5 = request.POST['pref5']
-        apply_submit = Apply(name = name , roll=roll, mode = mode, pref1=pref1,pref2=pref2,pref3=pref3,pref4=pref4,pref5=pref5)
-        apply_submit.save()
-    return render(request, "authentication/apply.html")
+        applyinfo= Apply(name = name , roll=roll,pref1=pref1,pref2=pref2,pref3=pref3)
+        applyinfo.save()
+        return render(request ,"authentication/index.html")
+
+    
+
+
+
+
+        
+
