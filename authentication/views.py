@@ -39,21 +39,18 @@ def signup(request):
         roll = request.POST['roll']
         department = request.POST['department']
         year = request.POST['year']
+
         request.session['name'] = name
+
         request.session['roll'] = roll
 
         # uploaded_file = request.POST['resume']
 
+        
+
         info = Account(name = name , email = email , contact = contact, roll= roll,department =department, year=year)
         info.save()
 
-        global rollvalue
-        def rollvalue():
-            return roll
-
-        global value
-        def value():
-            return name
 
        
 
@@ -95,6 +92,8 @@ def login(request):
         if user is not None:
             auth_login(request, user)
             name = user.first_name
+            
+
                  
             return render(request, 'authentication/index.html', {'name':name})
         
@@ -247,12 +246,14 @@ def back(request):
 
 def apply(request):
     if request.method == 'POST':
-        name = request.session['name'] 
-        roll = request.session['roll'] 
+        
+        aname = request.session['name']
+        aroll = request.session['roll'] 
+        
         pref1 = request.POST['pref1']
         pref2 = request.POST['pref2']
         pref3 = request.POST['pref3']
-        applyinfo= Apply(name = name , roll=roll,pref1=pref1,pref2=pref2,pref3=pref3)
+        applyinfo= Apply(name = aname , roll= aroll,pref1=pref1,pref2=pref2,pref3=pref3)
         applyinfo.save()
         return render(request ,"authentication/index.html")
 

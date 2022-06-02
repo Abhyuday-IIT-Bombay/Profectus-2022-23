@@ -141,7 +141,7 @@ select{
 }
 
 .prof-container{
-    height: 120vh;
+    height: auto;
     background-image: linear-gradient(180deg, #A77DFF , rgba(240, 108, 156, 0.65) );
     display: flex;
 }
@@ -156,7 +156,7 @@ select{
     left: 0;
   
     overflow-x: hidden; 
-    margin: 1.5vh;
+    /* margin: 1.5vh; */
     background: rgba( 255, 255, 255, 0.1);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
@@ -175,7 +175,7 @@ select{
 }
 
 .iaf-content{
-    margin-left: 16vw;
+    margin-left: 15vw;
     width: 100%;
 }
 
@@ -187,17 +187,17 @@ select{
     justify-content: space-between;
    
    
-    margin: 1.5vh;
+    /* margin: 1.5vh; */
     overflow-x: hidden; 
     padding: 1.6vh 1vh;
-    background: rgba( 255, 255, 255, 0.1);
+    background: #A77DFF;
     box-shadow: 0 5px 30px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     border-bottom-right-radius: 1vh;
     border-bottom-left-radius: 1vh;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-    z-index: 2;
+    z-index: 3;
 }
 
 .resume-direct{
@@ -259,22 +259,18 @@ select{
 }
 
 #logo{
-    width: 190px;
-    height: 136px;
+    width: 10vw;
+    height: 14vh;
     position: absolute;
-    left: 2.08%;
-    right: 84.72%;
-    top: 1.66%;
-    bottom: 85.06%;
+    top: 2vh;
+    left: 2vh;
     
 }
 
 .new-nav{
     position: absolute;
-    left: 40.35%;
-    right: 6.18%;
-    top: 3.42%;
-    bottom: 89.26%;
+    top: 2vh;
+    right: 0;
 }
 
 .new-nav > ul{
@@ -592,7 +588,7 @@ color: #4A4848;
 }
 
 .logout-btn > a:hover{
-    color: purple;
+    color: rgb(104, 59, 94);
 }
 
 
@@ -614,36 +610,21 @@ color: #4A4848;
 
 
 .flip-card {
-    background-color: transparent;
-    width: 300px;
-    height: 300px;
-    perspective: 1000px;
-  }
-  
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width:45vh;height:45vh;
+    background: white;
+    margin: 2vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    border-radius: 1vh;
   }
   
   
   
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
   
-  .flip-card-front {
-    background: rgba(255, 255, 255, 0.87);
-    color: black;
-  }
+  
+ 
   
   
 
@@ -675,8 +656,14 @@ color: #4A4848;
     background: transparent;
     border: 1px solid purple;
     color: white;
-    padding: 1vh 4vh;
+    padding: 0.5vh 4vh;
+    border-radius: 1vh;
     
+}
+
+.apply-btn:hover{
+background-color: rgb(104, 59, 94);
+color: white;
 }
 
 .managers{
@@ -711,125 +698,365 @@ color: #4A4848;
     color: #FFFFFF;
 }
 
-
-blockquote {
-    padding: 0;
-    margin: 0;
+.pref-select{
+    margin: 1vh;
+    padding: 0.8vh;
 }
 
-section.t-bq-section {
-    padding: 30px;
-    margin-bottom: 60px;
+.same{
+    background:transparent;
+    width: 54%;
+    border-radius: 0.5vh;
 }
 
-.t-bq-wrapper.t-bq-wrapper-boxed {
-    max-width: 576px;
-    margin: 0 auto;
+.bt{
+    padding: 0.5vh;
+    border: 1px solid rgb(94, 74, 94);
 }
 
-.t-bq-wrapper.t-bq-wrapper-fullwidth {
-    max-width: 100%;
-}
-
-
-
-.t-bq-quote-paul {
-    position: relative;
+.custom-col{
     display: flex;
-    flex-direction: row;
-    min-height: 250px;
-    box-shadow: 2px 2px 25px #cecece;
-    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
-.t-bq-quote-paul .t-bq-quote-paul-pattern {
-    flex-basis: 80px;
-    background: url("https://raw.githubusercontent.com/taviskaron/t-div-blockquotes/main/img/hexabump.png") repeat;
-    border-radius: 10px 0 0 10px;
+.test{
+    border: 0.5px solid black;
+    border-radius: 1vh;
+    margin: 2vh;
+    height: 40vh;
+    width: 35vw;
 }
 
-.t-bq-quote-paul .t-bq-quote-paul-base {
-    flex-basis: calc(100% - 80px);
-    background: #ffffff;
-    padding: 40px 30px 50px 80px;
-    font-size: 11pt;
-    line-height: 1.62em;
-    border-radius: 0 10px 10px 0;
+.custom{
+    display: flex;
+    justify-content: center;
 }
 
-.t-bq-quote-paul .t-bq-quote-paul-qmark {
-    position: absolute;
-    top: 50px;
-    left: 105px;
-    font-family: Garamond, Georgia, "Times New Roman", serif;
-    font-size: 42pt;
-    color: #999999;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+.icon{
+    display: none;
+}
+#myLink{
+    display: block;
 }
 
-.t-bq-quote-paul .t-bq-quote-paul-userpic {
-    position: absolute;
-    top: 80px;
-    left: 45px;
-    width: 70px;
-    height: 70px;
-    background: url("https://raw.githubusercontent.com/taviskaron/t-div-blockquotes/main/img/strug.jpg") center center no-repeat;
-    background-size: cover;
-    border-radius: 50%;
+.card-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.t-bq-quote-paul .t-bq-quote-paul-meta {
-    margin-top: 30px;
-    padding-top: 10px;
-    border-top: 2px dotted #777777;
+
+/* Responsive CSS */
+
+/* laptop small screen */
+
+
+@media screen and (max-width:1024px) {
+    
+    #logo {
+        width: 14vw;
+        height: 12vh;
+    }
+    
+    .new-nav >ul >li {
+        font-size: 3vh;
+        padding: 2vh 3vh;
+    }
+    
+    .title{
+        left: 11vh;
+        top: 24vh;
+        font-size: 15vh;
+    }
+
+    .sub-title{
+        left: 11.5vh;
+        top: 41vh;
+        font-size: 5vh;
+    }
+
+    button >a {
+        font-size: 3vh;
+    }
+    .regbtn{
+        padding: 0.5vh 6vh;
+    }
+    .heading{
+        padding-top: 5vh;
+        font-size: 4vh;
+    }
+    .discription{
+        font-size: 2vh;
+    }
+    #fellow-heading{
+        padding-top: 5vh;
+        font-size: 4vh;
+    }
+    #fellow-discription{
+        padding-top: 1.5vh;
+        font-size: 2vh;
+    }
+    .about-fellowship{
+        height: 51vh;
+    }
+    #contact-land{
+        font-size: 4vh;
+    }
+    .managers{
+        font-size: 3.5vh;
+    }
+    .department{
+        font-size: 2.8vh;
+    }
+
+    .nav{
+        left: 29vw;
+    }
+    .iaf-content{
+        margin-left: 27vw;
+    }
+    .sidenav{
+        width: 27vw;
+    }
 }
 
-.t-bq-quote-paul .t-bq-quote-paul-meta .t-bq-quote-paul-author,
-.t-bq-quote-paul .t-bq-quote-paul-meta .t-bq-quote-paul-source {
-    color: #777777;
-}
 
-.t-bq-quote-paul .t-bq-quote-paul-meta .t-bq-quote-paul-author {
-    font-style: normal;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    font-size: 10pt;
-    font-weight: bold;
-}
 
-.t-bq-quote-paul .t-bq-quote-paul-meta .t-bq-quote-paul-author cite {
-    font-style: normal;
-}
-
-.t-bq-quote-paul .t-bq-quote-paul-meta .t-bq-quote-paul-source {
-    font-size: 9pt;
-}
+/* Tablet View */
 
 @media screen and (max-width: 768px) {
-
-    .t-bq-quote-paul .t-bq-quote-paul-pattern {
-        flex-basis: 20px;
+    .land-container-1,#layer2{
+        height: 92vh;
+    }
+    .new-nav >ul >li {
+        font-size: 2.5vh;
+        padding: 2vh 3vh;
+    }
+    #logo{
+        width: 19vw;
+    }
+    .title{
+        font-size: 13vh;
+    }
+    .about-profectus{
+        height: 42vh;
+        padding: 0 3vw;
+    }
+    .discription{
+        width: auto;
+    }
+    .about-fellowship{
+        height: 53vh;
+        padding: 0 4vw;
+    }
+    #fellow-discription{
+        width: auto;
     }
 
-    .t-bq-quote-paul .t-bq-quote-paul-base {
-        flex-basis: calc(100% - 20px);
-        padding: 100px 30px 50px 30px;
+    .custom-col{
+        display: flex;
+        flex-direction: column;
     }
 
-    .t-bq-quote-paul .t-bq-quote-paul-userpic {
-        width: 50px;
-        height: 50px;
-        left: 40px;
-        top: 20px;
+    .testimonial{
+        height: 105vh;
     }
 
-    .t-bq-quote-paul .t-bq-quote-paul-qmark {
-        left: 100px;
-        top: 45px;
+    .land-container-2{
+        height: 95vh;
     }
+    
+    .test{
+        width: 52vw;
+    }
+    .managers{
+        font-size: 2.5vh;
+    }
+    .department{
+        font-size: 2vh;
+    }
+
+    label,input{
+        width: 24.5vw;
+    }
+    
+}
+
+/* mobile */
+
+@media screen and (max-width:425px) {
+    #layer2,.land-container-1{
+        height: 72vh;
+    }
+    #logo{
+        height: 9vh;
+        width: 26vw;
+        top: 1vh;
+    }
+    .title{
+        left: 5vh;
+        top: 15vh;
+        font-size: 8vh;
+    }
+    .sub-title {
+        left: 5vh;
+        top: 28.5vh;
+        font-size: 3vh;
+    }
+    .icon{
+        display: block;
+        position: absolute;
+        top: 2vh;
+        right: 6vw;
+        color: white;
+        font-size: 3.5vh;
+        z-index: 12;
+    }
+
+    #myLinks,#myPref{
+        display: none;
+    }
+
+    .regbtn{
+        padding: 0vh 6vh;
+        bottom: 50vh;
+        left: 12vw;
+    }
+    button >a {
+        font-size: 2.5vh;
+    }
+    .new-nav >ul >li {
+        font-size: 2vh;
+        padding: 0vh 1vh;
+    }
+    .new-nav > ul {
+        display: flex;
+        /* flex-direction: column; */
+        list-style: none;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+    }
+    .new-nav {
+        position: absolute;
+        top: 11vh;
+        right: 3.5vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba( 255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+        backdrop-filter: blur( 4px );
+        -webkit-backdrop-filter: blur( 4px );
+        /* border-top-right-radius: 1vh; */
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        border-bottom-left-radius: 1.5vh;
+        border-bottom-right-radius: 1.5vh;
+    }
+
+    .heading {
+        padding-top: 3vh;
+        font-size: 3vh;
+    }
+    
+    .discription{
+        font-size: 1.7vh;
+        padding-top: 2.5vh;
+        line-height: 2.5vh;
+    }
+
+    #fellow-heading {
+        padding-top: 2vh;
+        font-size: 3vh;
+    }
+    #fellow-discription{
+        padding-top: 1.5vh;
+        font-size: 1.7vh;
+        line-height: 2.5vh;
+    }
+    .test{
+        width: 70vw;
+    }
+    .managers{
+        margin-top: 3vh;
+        flex-direction: column;
+    }
+    .department{
+        margin-top: 0.5vh;
+    }
+    .manage-inner{
+        margin-bottom: 2vh ;
+    }
+
+    
+    .iaf-content{
+        margin-left:0 ;
+    }
+    .nav{
+        right: 0;
+        left: 0;
+    }
+    .sidenav{
+        z-index: 5;
+        width: 67vw;
+        background: rgba(0,0,0,0.7);
+    }
+    label{
+        color: white;
+        
+        width: 100%;
+    }
+    input{
+        color: white;
+        background: rgba(0,0,0,0.7);
+        width: 100%;
+        border: 0.5px solid white;
+    }
+    .apply-btn{
+        border: 1px solid white;
+    }
+
+    
+}
+
+@media screen and (max-width:375px) {
+    .new-nav{
+        right: 2vh;
+    }
+    #fellow-heading{
+        font-size: 2.7vh;
+    }
+    #fellow-discription {
+        padding-top: 1vh;
+        font-size: 1.7vh;
+        line-height: 2.3vh;
+    }
+    .new-nav > ul{
+        flex-direction: column;
+    }
+    .new-nav{
+        top: 1vh;
+        right: 6vh;
+    }
+    .sub-title{
+        font-size: 2vh;
+    }
+    .about-profectus{
+        height: 47vh;
+    }
+    #fellow-heading{
+        font-size: 2.2vh;
+    }
+    .about-fellowship{
+        height: 60vh;
+    }
+
+    h1{
+        margin-top: 16vh;
+    }
+    
 }
 
 
