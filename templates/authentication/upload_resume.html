@@ -10,9 +10,23 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <style>
-  input,select{
-    margin: 1vh;
-    width: 50vh;
+  input{
+    background: transparent;
+    border: 1px solid white;
+    width: 40vh;
+    padding: 0.5vh;
+    color: purple;
+    border-radius: 0.5vh;
+    margin-bottom: 0;
+  }
+  select{
+    background: transparent;
+    border: 1px solid white;
+    width: 40vh;
+    padding: 0.5vh;
+    color: purple;
+    border-radius: 0.5vh;
+    margin-bottom: 0;
     
   }
   textarea{
@@ -46,7 +60,7 @@
 
   {% endfor %}
   <div class="r-reg-outer-container">
-    <div class="r-reg-container">
+    
 
       <h1 style="text-align: center; margin: 2vh;">Resume</h1>
       <div style="display: flex; justify-content:space-between;width:100% ; padding: 0 5vh;">
@@ -78,9 +92,10 @@
                 <div class="tab ">
                   <div class="inner-form">
                     <input type="text" name="fname"  placeholder="First name" oninput="this.className = ''">
+                    <br>
                   <input type="text" name="lname" placeholder="Last name" oninput="this.className = ''">
-                  <div class="input-group">
-                    <!-- <label>Department</label> -->
+                  
+                    <br>
                     <select name="department" oninput="this.className = ''">
                         <option value="Aerospace Engineering">Aerospace Engineering</option>
                         <option value="Biosciences and Bioengineering">Biosciences and Bioengineering</option>
@@ -103,9 +118,9 @@
                         <option value="Physics">Physics</option>
                         <option value="Shailesh J. Mehta School of Managemen">Shailesh J. Mehta School of Managemen</option>
                     </select>
-                  </div>
+                    <br>
                   <input type="text" name="roll" placeholder="Roll Number" oninput="this.className = ''">
-                  <div class="input-group">                  
+                       <br>          
                     <select name="year" oninput="this.className = ''">
                         <option value="Male">Male </option>
                         <option value="Female">Female</option>
@@ -114,16 +129,16 @@
 
 
                     </select>
-                  </div>
+                  
                   </div>
                 </div>
                 
                 <div class="tab ">
                   <div class="inner-form">
                     <label for="" style="margin: 2vh 0vh">Graduation</label>
-                    <input oninput="this.className = ''" type="number" name="startyear" placeholder="Start Year">
-                    <input oninput="this.className = ''" type="number" name="endyear" placeholder="Graduation Year">
-                    <input oninput="this.className = ''" type="text" name="cpi" placeholder="CPI">
+                    <input oninput="this.className = ''" type="number" name="startyear" placeholder="Start Year"><br>
+                    <input oninput="this.className = ''" type="number" name="endyear" placeholder="Graduation Year"><br>
+                    <input oninput="this.className = ''" type="text" name="cpi" placeholder="CPI"><br>
 
                   </div>
                 </div>
@@ -132,10 +147,10 @@
                   <div class="inner-form">
 
                     <label for=""style="margin: 2vh 0vh">Intermediate</label>
-                    <input oninput="this.className = ''"oninput="this.className = ''"  type="text" name="board12" placeholder="Board">
-                    <input oninput="this.className = ''"oninput="this.className = ''"  type="text" name="college" placeholder="College">
-                    <input oninput="this.className = ''"oninput="this.className = ''"  type="number" name="year12" placeholder="Passing Year">   
-                    <input oninput="this.className = ''"oninput="this.className = ''"  type="text" name="cpi12" placeholder="Percentage/CPI"> 
+                    <input oninput="this.className = ''"oninput="this.className = ''"  type="text" name="board12" placeholder="Board"><br>
+                    <input oninput="this.className = ''"oninput="this.className = ''"  type="text" name="college" placeholder="College"><br>
+                    <input oninput="this.className = ''"oninput="this.className = ''"  type="number" name="year12" placeholder="Passing Year"><br>
+                    <input oninput="this.className = ''"oninput="this.className = ''"  type="text" name="cpi12" placeholder="Percentage/CPI"> <br>
                   </div>
                 </div>
                 
@@ -143,10 +158,10 @@
                   <div class="inner-form">
 
                     <label for=""style="margin: 2vh 0vh">Matriculation</label>
-                    <input oninput="this.className = ''" type="text" name="board10" placeholder="Board">
-                    <input oninput="this.className = ''" type="text" name="school" placeholder="School">
-                    <input oninput="this.className = ''" type="number" name="year10" placeholder="Passing Year">   
-                    <input oninput="this.className = ''" type="text" name="cpi10" placeholder="Percentage/CPI"> 
+                    <input oninput="this.className = ''" type="text" name="board10" placeholder="Board"><br>
+                    <input oninput="this.className = ''" type="text" name="school" placeholder="School"><br>
+                    <input oninput="this.className = ''" type="number" name="year10" placeholder="Passing Year">   <br>
+                    <input oninput="this.className = ''" type="text" name="cpi10" placeholder="Percentage/CPI"> <br>
                   </div>
 
                 </div>
@@ -157,22 +172,22 @@
                     <label for=""style="margin: 2vh 0vh">Position of Responsibility</label>
                    
                     <label for="">First POR</label>
-                    <input oninput="this.className = ''" type="text" name="ptitle1" placeholder="Title 1">
-                    <input oninput="this.className = ''" type="text" name="p1start" placeholder="Starts At">
-                    <input oninput="this.className = ''" type="text" name="p1end" placeholder="Ends At">   
-                    <textarea oninput="this.className = ''" name="p1info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+                    <input oninput="this.className = ''" type="text" name="ptitle1" placeholder="Title 1"><br>
+                    <input oninput="this.className = ''" type="text" name="p1start" placeholder="Starts At"><br>
+                    <input oninput="this.className = ''" type="text" name="p1end" placeholder="Ends At"><br>
+                    <textarea oninput="this.className = ''" name="p1info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea><br>
     
                     <label for="">Second POR</label>
-                    <input oninput="this.className = ''" type="text" name="ptitle2" placeholder="Title 2">
-                    <input oninput="this.className = ''" type="text" name="p2start" placeholder="Starts At">
-                    <input oninput="this.className = ''" type="text" name="p2end" placeholder="Ends At">   
-                    <textarea oninput="this.className = ''" name="p2info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+                    <input  type="text" name="ptitle2" placeholder="Title 2"><br>
+                    <input  type="text" name="p2start" placeholder="Starts At"><br>
+                    <input  type="text" name="p2end" placeholder="Ends At"> <br>  
+                    <textarea  name="p2info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea><br>
     
                     <label for="">Third POR</label>
-                    <input oninput="this.className = ''" type="text" name="ptitle3" placeholder="Title 3">
-                    <input oninput="this.className = ''" type="text" name="p3start" placeholder="Starts At">
-                    <input oninput="this.className = ''" type="text" name="p3end" placeholder="Ends At">   
-                    <textarea oninput="this.className = ''" name="p3info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+                    <input  type="text" name="ptitle3" placeholder="Title 3"><br>
+                    <input  type="text" name="p3start" placeholder="Starts At"><br>
+                    <input  type="text" name="p3end" placeholder="Ends At">  <br> 
+                    <textarea  name="p3info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea><br>
                   </div>
 
                 </div>
@@ -183,22 +198,22 @@
                     <label for=""style="margin: 2vh 0vh">Key Projects</label>
     
                     <label for="">First Project</label>
-                    <input oninput="this.className = ''" type="text" name="proj1" placeholder="Title 1">
-                    <input oninput="this.className = ''" type="text" name="proj1start" placeholder="Starts At">
-                    <input oninput="this.className = ''" type="text" name="proj1end" placeholder="Ends At">   
-                    <textarea oninput="this.className = ''" name="proj1info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+                    <input oninput="this.className = ''" type="text" name="proj1" placeholder="Title 1"><br>
+                    <input oninput="this.className = ''" type="text" name="proj1start" placeholder="Starts At"><br>
+                    <input oninput="this.className = ''" type="text" name="proj1end" placeholder="Ends At">   <br>
+                    <textarea oninput="this.className = ''" name="proj1info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea><br>
     
                     <label for="">Second Project</label>
-                    <input oninput="this.className = ''" type="text" name="proj2" placeholder="Title 2">
-                    <input oninput="this.className = ''" type="text" name="proj2start" placeholder="Starts At">
-                    <input oninput="this.className = ''" type="text" name="proj2end" placeholder="Ends At">   
-                    <textarea oninput="this.className = ''" name="proj2info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+                    <input oninput="this.className = ''" type="text" name="proj2" placeholder="Title 2"><br>
+                    <input oninput="this.className = ''" type="text" name="proj2start" placeholder="Starts At"><br>
+                    <input oninput="this.className = ''" type="text" name="proj2end" placeholder="Ends At">   <br>
+                    <textarea oninput="this.className = ''" name="proj2info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea><br>
     
                     <label for="">Third Project</label>
-                    <input oninput="this.className = ''" type="text" name="proj3" placeholder="Title 3">
-                    <input oninput="this.className = ''" type="text" name="proj3start" placeholder="Starts At">
-                    <input oninput="this.className = ''" type="text" name="proj3end" placeholder="Ends At">   
-                    <textarea oninput="this.className = ''" name="proj3info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+                    <input oninput="this.className = ''" type="text" name="proj3" placeholder="Title 3"><br>
+                    <input oninput="this.className = ''" type="text" name="proj3start" placeholder="Starts At"><br>
+                    <input oninput="this.className = ''" type="text" name="proj3end" placeholder="Ends At">   <br>
+                    <textarea oninput="this.className = ''" name="proj3info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea><br>
                   </div>
 
                 </div>
@@ -206,27 +221,27 @@
                 <div class="tab">
                   <div class="inner-form">
 
-                    <input oninput="this.className = ''" type="text" name="techskill" placeholder="Technical Sills">
+                    <input oninput="this.className = ''" type="text" name="techskill" placeholder="Technical Sills"><br>
     
                     <label for=""style="margin: 2vh 0vh">Extra Cuuriculars</label>
                    
                     <label for="">Activity 1</label>
                     
-                    <input oninput="this.className = ''" type="text" name="activity1start" placeholder="Starts At">
-                    <input oninput="this.className = ''" type="text" name="activity1end" placeholder="Ends At">   
-                    <textarea oninput="this.className = ''" name="activity1info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+                    <input oninput="this.className = ''" type="text" name="activity1start" placeholder="Starts At"><br>
+                    <input oninput="this.className = ''" type="text" name="activity1end" placeholder="Ends At">   <br>
+                    <textarea oninput="this.className = ''" name="activity1info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea><br>
     
                     <label for="">Activity 2</label>
                    
-                    <input oninput="this.className = ''" type="text" name="activity2start" placeholder="Starts At">
-                    <input oninput="this.className = ''" type="text" name="activity2end" placeholder="Ends At">   
-                    <textarea oninput="this.className = ''" name="activity2info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+                    <input oninput="this.className = ''" type="text" name="activity2start" placeholder="Starts At"><br>
+                    <input oninput="this.className = ''" type="text" name="activity2end" placeholder="Ends At">  <br> 
+                    <textarea oninput="this.className = ''" name="activity2info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea><br>
     
                     <label for="">Activity 3</label>
                    
-                    <input oninput="this.className = ''" type="text" name="activity3start" placeholder="Starts At">
-                    <input oninput="this.className = ''" type="text" name="activity3end" placeholder="Ends At">   
-                    <textarea oninput="this.className = ''" name="activity3info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea>
+                    <input oninput="this.className = ''" type="text" name="activity3start" placeholder="Starts At"><br>
+                    <input oninput="this.className = ''" type="text" name="activity3end" placeholder="Ends At">  <br> 
+                    <textarea oninput="this.className = ''" name="activity3info" id="" cols="30" rows="10" placeholder="Enter Your points"></textarea><br>
                   </div>
 
                 </div>
@@ -234,9 +249,12 @@
                 <div style="width:95%; display: flex; justify-content:center;">
                   <!-- <button type="submit" onclick="show()" class="custom-btn btn-11" style="margin-top: 4vh;">Upload</button> -->
                   <div style="overflow:auto;">
-                    <div style="float:center;">
+                    <div style="    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;">
                       <button class="custom-btn btn-11" type="button" id="prevBtn" onclick="nextPrev(-1)" >Previous</button>
-                      <button class="custom-btn btn-11" type="button" id="nextBtn" onclick="nextPrev(1)" >Next</button>
+                      <button class="custom-btn btn-11" type="button" id="nextBtn" onclick="nextPrev(1)"  style="margin-top: 2vh;">Next</button>
                     </div>
                   </div>
                 </div>
@@ -253,7 +271,7 @@
           </div>
         </div>
       </div>
-    </div>
+    
   </div>
 
 
@@ -307,22 +325,7 @@ function nextPrev(n) {
 function validateForm() {
   // This function deals with validation of the form fields
   var x, y, i, valid = true;
-  x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false
-      valid = false;
-    }
-  }
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
-  }
+  
   return valid; // return the valid status
 }
 function fixStepIndicator(n) {
