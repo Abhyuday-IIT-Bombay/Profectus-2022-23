@@ -98,8 +98,8 @@ def login(request):
             return render(request, 'authentication/index.html', {'name':name})
         
         else:
-            messages.error(request, "Bad Connection")
-            return redirect('home')
+            messages.error(request, "Wrong Credentials")
+            return render(request,"authentication/login.html")
 
             
 
